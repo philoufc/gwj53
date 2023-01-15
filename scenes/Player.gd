@@ -11,6 +11,18 @@ var free_spaces = {
 var is_moving = false
 var elements_carried = []
 
+onready var sprite : AnimatedSprite = $AnimatedSprite
+onready var area_up : Area2D = $Area_up
+onready var area_down : Area2D = $Area_down
+onready var area_left : Area2D = $Area_left
+onready var area_right : Area2D = $Area_right
+onready var raycast_up : RayCast2D = $RayCast_up
+onready var raycast_down : RayCast2D = $RayCast_down
+onready var raycast_left : RayCast2D = $RayCast_left
+onready var raycast_right : RayCast2D = $RayCast_right
+onready var elements : Node2D = $Elements
+onready var tween : Tween = $Tween
+
 func _ready() -> void:
 	self.position = get_pos_from_tile(get_tile_from_pos(self.position))
 	for element in get_tree().get_nodes_in_group("elements"):
@@ -29,26 +41,26 @@ func _input(event: InputEvent) -> void:
 			elif event.is_action_pressed("right"):
 				if free_spaces["right"] > 0:
 					move("right")
-				$AnimatedSprite.flip_h = false
+				sprite.flip_h = false
 			elif event.is_action_pressed("left"):
 				if free_spaces["left"] > 0:
 					move("left")
-				$AnimatedSprite.flip_h = true
+				sprite.flip_h = true
 
 func update_free_spaces():
-	$RayCast_up.cast_to = Vector2(0, -2000)
-	$RayCast_down.cast_to = Vector2(0, 2000)
-	$RayCast_right.cast_to = Vector2(2000, 0)
-	$RayCast_left.cast_to = Vector2(-2000, 0)
+	raycast_up.cast_to = Vector2(0, -2000)
+	raycast_down.cast_to = Vector2(0, 2000)
+	raycast_right.cast_to = Vector2(2000, 0)
+	raycast_down.cast_to = Vector2(-2000, 0)
 	for i in free_spaces: free_spaces[i] = 0
-	if $RayCast_up.is_colliding():
-		free_spaces["up"] = int(abs($RayCast_up.get_collision_point().y - self.position.y) / Global.TILE_SIZE)
-	if $RayCast_down.is_colliding():
-		free_spaces["down"] = int(abs($RayCast_down.get_collision_point().y - self.position.y) / Global.TILE_SIZE)
-	if $RayCast_right.is_colliding():
-		free_spaces["right"] = int(abs($RayCast_right.get_collision_point().x - self.position.x) / Global.TILE_SIZE)
-	if $RayCast_left.is_colliding():
-		free_spaces["left"] = int(abs($RayCast_left.get_collision_point().x - self.position.x) / Global.TILE_SIZE)
+	if raycast_up.is_colliding():
+		free_spaces["up"] = int(abs(raycast_up.get_collision_point().y - self.position.y) / Global.TILE_SIZE)
+	if raycast_down.is_colliding():
+		free_spaces["down"] = int(abs(raycast_down.get_collision_point().y - self.position.y) / Global.TILE_SIZE)
+	if raycast_right.is_colliding():
+		free_spaces["right"] = int(abs(raycast_right.get_collision_point().x - self.position.x) / Global.TILE_SIZE)
+	if raycast_left.is_colliding():
+		free_spaces["left"] = int(abs(raycast_left.get_collision_point().x - self.position.x) / Global.TILE_SIZE)
 	
 func move(direction):
 	is_moving = true
@@ -62,7 +74,7 @@ func move(direction):
 			tile_movement = Vector2.RIGHT
 		"left":
 			tile_movement = Vector2.LEFT
-	$Tween.interpolate_property(
+	tween.interpolate_property(
 		self, 
 		"position", 
 		self.position, 
@@ -70,33 +82,30 @@ func move(direction):
 		0.5, 
 		Tween.TRANS_BACK, 
 		Tween.EASE_IN)
-	$Tween.start()
-	yield($Tween, "tween_completed")
+	tween.start()
+	yield(tween, "tween_completed")
 	is_moving = false
 	yield(get_tree().create_timer(0.1), "timeout")
 	check_around_and_attach()
 
 func check_around_and_attach():
-	if $Area_up.get_overlapping_bodies():
-		if $Area_up.get_overlapping_bodies()[0].is_in_group("elements"):
-			var element = $Area_up.get_overlapping_bodies()[0]
+	if area_up.get_overlapping_bodies():
+		if area_up.get_overlapping_bodies()[0].is_in_group("elements"):
+			var element = area_up.get_overlapping_bodies()[0]
 			print("it's elemental, dear watson!", element)
 			element.get_parent().remove_child(element)
-			$Elements.add_child(element)
+			elements.add_child(element)
 			element.position = $Elements/Position2D_up.position
-	if $Area_down.get_overlapping_bodies():
-		if $Area_down.get_overlapping_bodies()[0].is_in_group("elements"):
-			var element = $Area_down.get_overlapping_bodies()[0]
+	if area_down.get_overlapping_bodies():
+		if area_down.get_overlapping_bodies()[0].is_in_group("elements"):
+			var element = area_down.get_overlapping_bodies()[0]
 			print("it's elem!", element)
-	if $Area_right.get_overlapping_bodies():
-		if $Area_right.get_overlapping_bodies()[0].is_in_group("elements"):
+	if area_right.get_overlapping_bodies():
+		if area_right.get_overlapping_bodies()[0].is_in_group("elements"):
 			print("it's elemental, dear watson!")
-	if $Area_left.get_overlapping_bodies():
-		if $Area_left.get_overlapping_bodies()[0].is_in_group("elements"):
+	if area_left.get_overlapping_bodies():
+		if area_left.get_overlapping_bodies()[0].is_in_group("elements"):
 			print("it's elemental, dear watson!")
-	
-
-
 
 func get_tile_from_pos(position):
 	return get_tree().root.get_node("Level").return_tile(position)
