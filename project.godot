@@ -1,0 +1,149 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "DialogData",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/resources/DialogData.gd"
+}, {
+"base": "GraphNode",
+"class": "DialogGraphNode",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/DialogNode.gd"
+}, {
+"base": "Resource",
+"class": "DialogNodeData",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/resources/DialogNodeData.gd"
+}, {
+"base": "Resource",
+"class": "DialogNodeItemData",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/resources/DialogNodeItemData.gd"
+}, {
+"base": "Control",
+"class": "DialogNodeItem_condition",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/DialogNodeItem_condition.gd"
+}, {
+"base": "Control",
+"class": "DialogNodeItem_effect",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/DialogNodeItem_effect.gd"
+}, {
+"base": "Control",
+"class": "DialogNodeItem_message",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/DialogNodeItem_message.gd"
+}, {
+"base": "Control",
+"class": "DialogNodeItem_option",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/DialogNodeItem_option.gd"
+}, {
+"base": "Resource",
+"class": "DialogNodeOptionData",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/resources/DialogNodeOptionData.gd"
+}, {
+"base": "Resource",
+"class": "DialogSheetData",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/resources/DialogSheetData.gd"
+}, {
+"base": "EditorProperty",
+"class": "InspectorPluginSheetIDFieldItem",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/InspectorPluginSheetIDFieldItem.gd"
+}, {
+"base": "Resource",
+"class": "MTCharacterData",
+"language": "GDScript",
+"path": "res://madtalk/CharacterData.gd"
+}, {
+"base": "Reference",
+"class": "MTDefs",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/MTDefs.gd"
+}, {
+"base": "Reference",
+"class": "MessageCodeParser",
+"language": "GDScript",
+"path": "res://addons/madtalk/components/MessageCodeParser.gd"
+} ]
+_global_script_class_icons={
+"DialogData": "",
+"DialogGraphNode": "",
+"DialogNodeData": "",
+"DialogNodeItemData": "",
+"DialogNodeItem_condition": "",
+"DialogNodeItem_effect": "",
+"DialogNodeItem_message": "",
+"DialogNodeItem_option": "",
+"DialogNodeOptionData": "",
+"DialogSheetData": "",
+"InspectorPluginSheetIDFieldItem": "",
+"MTCharacterData": "",
+"MTDefs": "",
+"MessageCodeParser": ""
+}
+
+[application]
+
+config/name="gwj53 - assembly req"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/madtalk/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
