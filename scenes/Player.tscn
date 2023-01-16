@@ -108,7 +108,7 @@ position = Vector2( 0, -28 )
 z_index = 1
 frames = SubResource( 9 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="RayCastUp" type="RayCast2D" parent="."]

@@ -89,7 +89,7 @@ func move(direction):
 			tile_movement = Vector2.RIGHT
 		"left":
 			tile_movement = Vector2.LEFT
-	
+	yield(get_tree().create_timer(0.1), "timeout")
 	number_of_tiles = free_spaces[direction]
 	for element in elements_carried:
 		if element.get_free_spaces(direction) < number_of_tiles:
@@ -109,6 +109,8 @@ func move(direction):
 		is_moving = false
 		yield(get_tree().create_timer(0.1), "timeout")
 		check_around_and_attach()
+		for element in elements_carried:
+			element.element_check_around_and_attach()
 		check_if_level_complete()
 	else:
 		is_moving = false
@@ -123,6 +125,8 @@ func check_around_and_attach():
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
 			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			yield(get_tree().create_timer(0.1), "timeout")
+			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_down.get_overlapping_bodies():
 		if area_down.get_overlapping_bodies()[0].is_in_group("elements"):
 			var element = area_down.get_overlapping_bodies()[0]
@@ -132,6 +136,8 @@ func check_around_and_attach():
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
 			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			yield(get_tree().create_timer(0.1), "timeout")
+			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_right.get_overlapping_bodies():
 		if area_right.get_overlapping_bodies()[0].is_in_group("elements"):
 			var element = area_right.get_overlapping_bodies()[0]
@@ -141,6 +147,8 @@ func check_around_and_attach():
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
 			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			yield(get_tree().create_timer(0.1), "timeout")
+			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_left.get_overlapping_bodies():
 		if area_left.get_overlapping_bodies()[0].is_in_group("elements"):
 			var element = area_left.get_overlapping_bodies()[0]
@@ -150,24 +158,31 @@ func check_around_and_attach():
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
 			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
-	print(elements_offsets)
-	
+			yield(get_tree().create_timer(0.1), "timeout")
+			element.element_check_around_and_attach() # comment out to connect only one element at a time
 func check_if_level_complete():
 	if level.tile_is_exit(get_tile_from_pos(position)):
-		print(elements_offsets)
-		print(solutions[current_level])
+		print("our shape:", elements_offsets)
+		print("solution:", solutions[current_level])
+		
+		print(len(elements_offsets), " =? ", len(solutions[current_level]))
 		if len(elements_offsets) == len(solutions[current_level]):
 			var found_discrepancy = false
 			for element in solutions[current_level]:
 				if solutions[current_level][element] != elements_offsets[element]:
-					print(solutions[current_level][element])
 					print(elements_offsets[element])
+					print(solutions[current_level][element])
 					found_discrepancy = true
 					break
 			if !found_discrepancy:
 				$LevelEnd.text = "win!"
 				$LevelEnd.show()
 				yield(get_tree().create_timer(2), "timeout")
+				$LevelEnd.hide()
+			else:
+				$LevelEnd.text = "nope!"
+				$LevelEnd.show()
+				yield(get_tree().create_timer(1), "timeout")
 				$LevelEnd.hide()
 		else:
 			$LevelEnd.text = "nope!"
