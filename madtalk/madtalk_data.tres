@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=8 format=2]
+[gd_resource type="Resource" load_steps=12 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -38,9 +38,55 @@ sheet_description = "Don't delete this please. You don't have to use it either."
 next_sequence_id = 1
 nodes = [ SubResource( 2 ) ]
 
+[sub_resource type="Resource" id=4]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "player"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "test"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "teacher"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "[b]replying to test![/b]"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 1 )
+sequence_id = 0
+position = Vector2( 0, 0 )
+comment = ""
+items = [ SubResource( 4 ), SubResource( 5 ) ]
+options = [  ]
+continue_sequence_id = -1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+sheet_id = "new_sheet_1"
+sheet_description = ""
+next_sequence_id = 1
+nodes = [ SubResource( 6 ) ]
+
 [resource]
 script = ExtResource( 3 )
 version = 1.0
 sheets = {
-"first_sheet": SubResource( 3 )
+"first_sheet": SubResource( 3 ),
+"new_sheet_1": SubResource( 7 )
 }

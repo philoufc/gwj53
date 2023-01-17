@@ -15,4 +15,4 @@ func tile_is_walkable(tile):
 	return tilemap.get_cellv(tile) == 0
 
 func tile_is_exit(tile):
-	return tilemap.get_cellv(tile) == 2
+	return tilemap.get_cellv(tile) == 4

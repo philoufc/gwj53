@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elements.png-9ea5131ececc081bb119c07cfbd75c13.stex"
+path="res://.import/light_circle.png-58b7905383ff94d115976f1989e4fac2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/elements.png"
-dest_files=[ "res://.import/elements.png-9ea5131ececc081bb119c07cfbd75c13.stex" ]
+source_file="res://assets/light_circle.png"
+dest_files=[ "res://.import/light_circle.png-58b7905383ff94d115976f1989e4fac2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
