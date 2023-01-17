@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/convo.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/ConvoScene.gd" type="Script" id=2]
+[ext_resource path="res://madtalk/madtalk_runtime.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/convo_bold.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/theme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/convo_box.png" type="Texture" id=6]
+[ext_resource path="res://assets/mugshots/placeholder.png" type="Texture" id=7]
+[ext_resource path="res://madtalk/CharacterData.gd" type="Script" id=8]
+[ext_resource path="res://assets/play.png" type="Texture" id=9]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 8 )
+id = "ciaran"
+name = "Ciaran"
+variants = {
+}
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 8 )
+id = "liadan"
+name = "Líadan"
+variants = {
+}
+
+[node name="ConvoScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="DialogueBox" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -210.0
+margin_top = -100.0
+margin_right = 210.0
+margin_bottom = -20.0
+theme = ExtResource( 5 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox"]
+margin_right = 420.0
+margin_bottom = 80.0
+texture = ExtResource( 6 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Dialogue" type="RichTextLabel" parent="DialogueBox/NinePatchRect"]
+margin_left = 88.0
+margin_top = 8.0
+margin_right = 408.0
+margin_bottom = 72.0
+custom_colors/default_color = Color( 0.964706, 0.776471, 0.658824, 1 )
+custom_fonts/bold_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Come on, this is way too easy! When am I going to learn how to turn people into frogs? ...You [b]can[/b] turn people into frogs, right?"
+text = "Come on, this is way too easy! When am I going to learn how to turn people into frogs? ...You can turn people into frogs, right?"
+scroll_active = false
+
+[node name="Mugshot" type="TextureRect" parent="DialogueBox/NinePatchRect"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 80.0
+margin_bottom = 72.0
+texture = ExtResource( 7 )
+
+[node name="TextureButton" type="TextureButton" parent="DialogueBox/NinePatchRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -14.0
+margin_top = -16.0
+margin_right = -6.0
+margin_bottom = -8.0
+texture_normal = ExtResource( 9 )
+
+[node name="MadTalk" type="Node" parent="."]
+script = ExtResource( 3 )
+ListOfCharacters = [ SubResource( 1 ), SubResource( 2 ) ]
+DialogMainControl = NodePath("../DialogueBox")
+DialogMessageBox = NodePath("../DialogueBox/NinePatchRect")
+DialogMessageLabel = NodePath("../DialogueBox/NinePatchRect/Dialogue")

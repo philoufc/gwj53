@@ -104,6 +104,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+MadTalkGlobals="*res://madtalk/MadTalkGlobals.gd"
 
 [display]
 
