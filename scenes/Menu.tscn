@@ -1,0 +1,401 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://visual/godot_icon.png" type="Texture" id=1]
+[ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=2]
+[ext_resource path="res://fonts/fragmentmono.tres" type="DynamicFont" id=3]
+[ext_resource path="res://visual/subvertissement_logo_mod.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=5]
+[ext_resource path="res://visual/gwj_logo_mod.png" type="Texture" id=6]
+[ext_resource path="res://themes/Theme.tres" type="Theme" id=8]
+[ext_resource path="res://audio/subvertissement_splash.ogg" type="AudioStream" id=12]
+
+[sub_resource type="Animation" id=10]
+resource_name = "Splash01godot"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SplashGodot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SplashGodot/SplashBG:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.3, 0, 1.3, 2.5 ),
+"transitions": PoolRealArray( 1, 0.965465, 8.57, 0.870125 ),
+"update": 0,
+"values": [ Color( 0.215686, 0.152941, 0.341176, 0 ), Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.215686, 0.152941, 0.341176, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SplashGodot/CenterContainer/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.7, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Splash02subver"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SplashSubvert:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SplashSubvert/SubvertissementLogo:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SplashSubvert/SplashCover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SplashSubvert/SplashBG:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( -0.4, 0, 3.1, 4.3 ),
+"transitions": PoolRealArray( 1, 8.57418, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.152941, 0.341176, 0.2, 1 ), Color( 0.152941, 0.341176, 0.2, 1 ), Color( 0.152941, 0.341176, 0.2, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SplashSubvert/TicTacPing:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( -0.1, 0.2, 2.6, 4.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 9.84917 ),
+"update": 0,
+"values": [ -80.0, 0.0, 0.0, -80.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SplashSubvert/TicTacPing:stream_paused")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SplashSubvert/TicTacPing:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SplashSubvert/TicTacPing:autoplay")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SubvertSplashSubs"
+} ]
+}
+
+[node name="Menu" type="Control"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -71.0 ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Coldfire-gb-32x" type="Sprite" parent="."]
+position = Vector2( 512, -65 )
+scale = Vector2( 7.85938, 2.15625 )
+texture = ExtResource( 2 )
+
+[node name="SplashSubvert" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SplashBG" type="ColorRect" parent="SplashSubvert"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+
+[node name="SubvertissementLogo" type="Sprite" parent="SplashSubvert"]
+self_modulate = Color( 0.964706, 0.776471, 0.658824, 1 )
+position = Vector2( 509, 302 )
+texture = ExtResource( 4 )
+
+[node name="SplashCover" type="ColorRect" parent="SplashSubvert"]
+anchor_left = 0.18457
+anchor_top = 0.706667
+anchor_right = 0.81543
+anchor_bottom = 0.87
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TicTacPing" type="AudioStreamPlayer" parent="SplashSubvert"]
+stream = ExtResource( 12 )
+volume_db = -80.0
+stream_paused = true
+bus = "SoundFX"
+
+[node name="SplashGodot" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SplashBG" type="ColorRect" parent="SplashGodot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="SplashGodot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SplashGodot/CenterContainer"]
+margin_left = 62.0
+margin_top = 69.0
+margin_right = 962.0
+margin_bottom = 501.0
+rect_min_size = Vector2( 900, 0 )
+custom_constants/separation = 42
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SplashGodot/CenterContainer/VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 480, 360 )
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SplashGodot/CenterContainer/VBoxContainer"]
+margin_top = 402.0
+margin_right = 900.0
+margin_bottom = 432.0
+size_flags_vertical = 3
+theme = ExtResource( 8 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]godot engine v3.5.1.stable.official[/center]"
+text = "godot engine v3.5.1.stable.official"
+fit_content_height = true
+
+[node name="SplashGWJ" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SplashBG" type="ColorRect" parent="SplashGWJ"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="SplashGWJ"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SplashGWJ/CenterContainer"]
+margin_left = 62.0
+margin_top = 90.0
+margin_right = 962.0
+margin_bottom = 490.0
+rect_min_size = Vector2( 900, 0 )
+custom_constants/separation = 42
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SplashGWJ/CenterContainer/VBoxContainer"]
+self_modulate = Color( 0.819608, 0.486275, 0.486275, 1 )
+margin_right = 900.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 480, 400 )
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Startup" type="AnimationPlayer" parent="."]
+anims/Splash01godot = SubResource( 10 )
+anims/Splash02subver = SubResource( 11 )
+
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0.356863, 0.462745, 0.552941, 1 )
+
+[node name="Label" type="Label" parent="MainMenu"]
+margin_left = 41.0
+margin_top = 55.0
+margin_right = 799.0
+margin_bottom = 111.0
+theme = ExtResource( 8 )
+text = "blurry background of a level tilemap with random panning around?"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+anchor_left = 0.736328
+anchor_right = 0.996094
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 600 )
+custom_constants/margin_right = 42
+custom_constants/margin_top = 42
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 42
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+margin_top = 204.0
+margin_right = 224.0
+margin_bottom = 558.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_constants/separation = 21
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_right = 224.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "Play with Potions"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Settings" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 224.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "Ciara's Cauldron"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Credits" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 224.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "Galar's Brew"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Exit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 225.0
+margin_right = 224.0
+margin_bottom = 279.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "The Witch's Tower"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Exit2" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 300.0
+margin_right = 224.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "Líadan's Broomba"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_Credits_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

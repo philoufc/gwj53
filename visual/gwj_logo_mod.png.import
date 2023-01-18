@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/witchstudent.png-a2912252fefd8507665d0811efdc27b5.stex"
+path="res://.import/gwj_logo_mod.png-82cd9b08c098bb0d5a704d1d1f2317bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/witchstudent.png"
-dest_files=[ "res://.import/witchstudent.png-a2912252fefd8507665d0811efdc27b5.stex" ]
+source_file="res://visual/gwj_logo_mod.png"
+dest_files=[ "res://.import/gwj_logo_mod.png-82cd9b08c098bb0d5a704d1d1f2317bf.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

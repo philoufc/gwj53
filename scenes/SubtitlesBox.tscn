@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fonts/fragmentmono.tres" type="DynamicFont" id=1]
+
+[node name="SubtitlesBox" type="HBoxContainer"]
+modulate = Color( 0.964706, 0.776471, 0.658824, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -316.0
+margin_top = -64.0
+margin_right = 316.0
+alignment = 1
+
+[node name="SubPre" type="Label" parent="."]
+margin_left = 274.0
+margin_right = 289.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.133333, 0.133333, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "["
+align = 1
+valign = 1
+
+[node name="Subtitles" type="Label" parent="."]
+margin_left = 293.0
+margin_right = 338.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.133333, 0.133333, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "pff"
+align = 1
+valign = 1
+
+[node name="SubPost" type="Label" parent="."]
+margin_left = 342.0
+margin_right = 357.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.133333, 0.133333, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "]"
+align = 1
+valign = 1

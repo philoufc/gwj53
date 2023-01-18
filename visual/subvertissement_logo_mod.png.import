@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elements.png-9ea5131ececc081bb119c07cfbd75c13.stex"
+path="res://.import/subvertissement_logo_mod.png-9040a22e689f7784c8d86d0f9326761d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/elements.png"
-dest_files=[ "res://.import/elements.png-9ea5131ececc081bb119c07cfbd75c13.stex" ]
+source_file="res://visual/subvertissement_logo_mod.png"
+dest_files=[ "res://.import/subvertissement_logo_mod.png-9040a22e689f7784c8d86d0f9326761d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

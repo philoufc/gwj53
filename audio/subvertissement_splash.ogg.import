@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/subvertissement_splash.ogg-b36c5ec0ace23a0cda1e85f6f5d41fba.oggstr"
+
+[deps]
+
+source_file="res://audio/subvertissement_splash.ogg"
+dest_files=[ "res://.import/subvertissement_splash.ogg-b36c5ec0ace23a0cda1e85f6f5d41fba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
