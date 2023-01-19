@@ -21,26 +21,35 @@ onready var raycast_up : RayCast2D = $RayCastUp
 onready var raycast_down : RayCast2D = $RayCastDown
 onready var raycast_right : RayCast2D = $RayCastRight
 onready var raycast_left : RayCast2D = $RayCastLeft
-onready var elements : Node2D = $Elements
 onready var tween : Tween = $Tween
-onready var level : Node2D = get_tree().root.get_node("Level")
+onready var level : Node2D 
 onready var position_up :Position2D = $ElementsPositions/Position2D_up
 onready var position_down :Position2D = $ElementsPositions/Position2D_down
 onready var position_right :Position2D = $ElementsPositions/Position2D_right
 onready var position_left :Position2D = $ElementsPositions/Position2D_left
 
 var solutions :Dictionary = {
-	1: {1: Vector2(1,0),
-		2: Vector2(0,1)},
+	1: {
+		2: [Vector2(0, 1)]
+	},
 	2: {
-		
+		1: [Vector2(0, -1)]
+	},
+	3: {
+		1: [Vector2(-1, 0)],
+		3: [Vector2(1, 0)]
+	},
+	"test": {
+		1: [Vector2(1, 0)],
+		2: [Vector2(0, 1)]
 	}
 }
 
 
 func _ready() -> void:
 	yield(get_tree(), "idle_frame")
-	self.position = get_pos_from_tile(get_tile_from_pos(self.position))
+	
+	current_level = level.level_number
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -101,7 +110,7 @@ func move(direction):
 			"position", 
 			self.position, 
 			self.position + (tile_movement * number_of_tiles * Global.TILE_SIZE), 
-			0.5, 
+			clamp(0.1 * number_of_tiles, 0.42, 0.84),
 			Tween.TRANS_BACK, 
 			Tween.EASE_IN)
 		tween.start()
@@ -111,7 +120,9 @@ func move(direction):
 		check_around_and_attach()
 		for element in elements_carried:
 			element.element_check_around_and_attach()
-		check_if_level_complete()
+		Global.number_of_moves += 1
+		Global.update_ui()
+		check_if_level_complete(Global.game_difficulty)
 	else:
 		is_moving = false
 
@@ -124,7 +135,9 @@ func check_around_and_attach():
 			element.position = position_up.position
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
-			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			if not element.element_number in elements_offsets.keys():
+				elements_offsets[element.element_number] = []
+			elements_offsets[element.element_number].append(get_tile_from_pos(element.position))
 			yield(get_tree().create_timer(0.1), "timeout")
 			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_down.get_overlapping_bodies():
@@ -135,7 +148,9 @@ func check_around_and_attach():
 			element.position = position_down.position
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
-			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			if not element.element_number in elements_offsets.keys():
+				elements_offsets[element.element_number] = []
+			elements_offsets[element.element_number].append(get_tile_from_pos(element.position))
 			yield(get_tree().create_timer(0.1), "timeout")
 			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_right.get_overlapping_bodies():
@@ -146,7 +161,9 @@ func check_around_and_attach():
 			element.position = position_right.position
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
-			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			if not element.element_number in elements_offsets.keys():
+				elements_offsets[element.element_number] = []
+			elements_offsets[element.element_number].append(get_tile_from_pos(element.position))
 			yield(get_tree().create_timer(0.1), "timeout")
 			element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_left.get_overlapping_bodies():
@@ -157,23 +174,38 @@ func check_around_and_attach():
 			element.position = position_left.position
 			element.collision_shape.disabled = true
 			elements_carried.append(element)
-			elements_offsets[element.element_number] = get_tile_from_pos(element.position)
+			if not element.element_number in elements_offsets.keys():
+				elements_offsets[element.element_number] = []
+			elements_offsets[element.element_number].append(get_tile_from_pos(element.position))
 			yield(get_tree().create_timer(0.1), "timeout")
 			element.element_check_around_and_attach() # comment out to connect only one element at a time
-func check_if_level_complete():
+#	print(elements_offsets)
+
+
+func check_if_level_complete(difficulty):
 	if level.tile_is_exit(get_tile_from_pos(position)):
-		print("our shape:", elements_offsets)
-		print("solution:", solutions[current_level])
-		
-		print(len(elements_offsets), " =? ", len(solutions[current_level]))
-		if len(elements_offsets) == len(solutions[current_level]):
+		var final_positions = []
+		flatten_array(elements_offsets.values(), final_positions)
+		final_positions.sort()
+		var solution_positions = []
+		flatten_array(solutions[current_level].values(), solution_positions)
+		solution_positions.sort()
+		if len(final_positions) == len(solution_positions):
 			var found_discrepancy = false
-			for element in solutions[current_level]:
-				if solutions[current_level][element] != elements_offsets[element]:
-					print(elements_offsets[element])
-					print(solutions[current_level][element])
-					found_discrepancy = true
-					break
+			match difficulty:
+				"hard":
+#					print("our shape:", elements_offsets)
+#					print("solution:", solutions[current_level])
+					for element in solutions[current_level]:
+						if solutions[current_level][element] != elements_offsets[element]:
+							found_discrepancy = true
+							break
+				"normal":
+#					print(final_positions)
+#					print(solution_positions)
+					if final_positions != solution_positions:
+						found_discrepancy = true
+							
 			if !found_discrepancy:
 				$LevelEnd.text = "win!"
 				$LevelEnd.show()
@@ -189,6 +221,13 @@ func check_if_level_complete():
 			$LevelEnd.show()
 			yield(get_tree().create_timer(1), "timeout")
 			$LevelEnd.hide()
+
+func flatten_array(array, flattened):
+	for element in array:
+		if typeof(element) == TYPE_ARRAY:
+			flatten_array(element, flattened)
+		else:
+			flattened.append(element)
 
 func get_tile_from_pos(position):
 	return level.return_tile(position)

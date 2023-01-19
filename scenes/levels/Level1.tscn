@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/levels/LevelTilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Element.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+position = Vector2( 0, 12 )
+script = ExtResource( 3 )
+level_number = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 65541, 6, 0, 65542, 6, 1, 65543, 6, 1, 65544, 6, 1, 65545, 6, 1, 65546, 6, 2, 131077, 6, 65536, 131078, 6, 65539, 131079, 6, 65539, 131080, 6, 65539, 131081, 6, 65539, 131082, 6, 65538, 196613, 6, 65536, 196614, 6, 65539, 196615, 6, 65539, 196616, 6, 65539, 196617, 6, 65537, 196618, 6, 65538, 262149, 6, 65536, 262150, 6, 65537, 262151, 6, 262146, 262152, 536870918, 262146, 262153, 6, 65537, 262154, 6, 65538, 327685, 6, 131072, 327686, 6, 131073, 327687, -2147483642, 131074, 327688, 6, 65536, 327689, 4, 0, 327690, 6, 65538, 393224, 6, 65536, 393225, 5, 0, 393226, 6, 65538, 458760, 6, 131072, 458761, 6, 131073, 458762, 6, 131074 )
+
+[node name="Element2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 413, 287 )
+element_number = 2
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 412, 163 )
+current_level = 2

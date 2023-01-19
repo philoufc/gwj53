@@ -1,5 +1,7 @@
 extends Control
 
+const TILE_SIZE = 64
+
 var is_menu = false
 #onready var msg_panel = $CanvasLayer/UI/HBoxContainer/MsgPanel
 #onready var msg_richtext = $CanvasLayer/UI/HBoxContainer/MsgPanel/VBoxContainer/RichTextLabel
@@ -8,9 +10,12 @@ onready var subtitles_box = preload("res://scenes/SubtitlesBox.tscn")
 onready var settings = $CanvasLayer/Settings
 onready var credits = $CanvasLayer/Credits
 onready var fader = $CanvasLayer/Fader
-
+onready var sweep = $CanvasLayer/Sweep
 onready var menu_music = $MenuMusic
 onready var animation_player = $AnimationPlayer
+
+var number_of_moves :int = 0
+var keeping_scores :Dictionary = {}
 
 var music_muted = false
 var voice_muted = false
@@ -18,7 +23,7 @@ var fx_muted = false
 var music_volume :float
 var voice_volume :float
 var fx_volume :float
-#export(String, "easy", "normal", "hard") var game_difficulty
+export(String, "normal", "hard") var game_difficulty
 
 var action_to_remap :String
 var remap_key :InputEventKey
@@ -35,22 +40,25 @@ var player_movement_locked = false
 var timer_on = false
 var time = 0
 var time_passed
-onready var timer = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer/Timer
+#onready var timer = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer/Timer
+onready var moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer/Moves
 onready var ui_timer = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer
 
 
-
 func _ready():
-	fader.visible = true
+	fader.visible = false
+	sweep.hide()
 	yield(get_tree(), "idle_frame")
 	music_volume = AudioServer.get_bus_volume_db(1)
 	fx_volume = AudioServer.get_bus_volume_db(2)
 	settings.visible = false
 	credits.visible = false
-	ui_timer.visible = false
+#	ui_timer.visible = false
 
+func update_ui():
+	moves.text = str(number_of_moves)
 
-func _process(delta):
+#func _process(_delta):
 #	if(timer_on):
 #		time += delta
 #	var mils = fmod(time, 1)*1000
@@ -61,18 +69,20 @@ func _process(delta):
 #	timer.text = str(time_passed)
 #	if time == 36000:
 #		prints("one hour, the end")
-	pass
-
 
 func FadeOut():
 	fader.visible = true
 	animation_player.play("ScreenVisualFadeOut")
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(animation_player, "animation_finished")
 
 func FadeIn():
 	fader.visible = true
 	animation_player.play("ScreenVisualFadeIn")
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(animation_player, "animation_finished")
+
+func fade_sweep():
+	animation_player.play("SweepFade")
+	yield(animation_player, "animation_finished")
 
 func MusicMuteToggle():
 	if music_muted == false:

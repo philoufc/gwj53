@@ -2,8 +2,8 @@ extends StaticBody2D
 
 var element_free_spaces = {"up": 0, "down": 0, "right": 0, "left": 0}
 export var element_number :int
-onready var level : Node2D = get_tree().root.get_node("Level")
-onready var player : Node2D = level.get_node("Player")
+onready var level : Node2D
+onready var player : Node2D
 onready var sprite :AnimatedSprite = $AnimatedSprite
 onready var collision_shape :CollisionShape2D = $CollisionElement
 onready var raycast_up : RayCast2D = $RayCastUp
@@ -22,7 +22,6 @@ onready var position_left :Position2D = $ElementsPositions/Position2D_left
 
 func _ready() -> void:
 	yield(get_tree(), "idle_frame")
-	self.position = get_pos_from_tile(get_tile_from_pos(self.position))
 	match element_number:
 		1:
 			sprite.set_animation("flame")
@@ -30,7 +29,6 @@ func _ready() -> void:
 			sprite.set_animation("glace")
 		3:
 			sprite.set_animation("light")
-		
 
 func update_free_spaces():
 	raycast_up.cast_to = Vector2(0, -2000)
@@ -62,7 +60,10 @@ func element_check_around_and_attach():
 			new_element.collision_shape.disabled = true
 			player.elements_carried.append(new_element)
 			yield(get_tree(), "idle_frame")
-			player.elements_offsets[new_element.element_number] = get_tile_from_pos(new_element.position)
+			if not new_element.element_number in player.elements_offsets.keys():
+				player.elements_offsets[new_element.element_number] = []
+			player.elements_offsets[new_element.element_number].append(get_tile_from_pos(new_element.position))
+			
 			yield(get_tree().create_timer(0.1), "timeout")
 			new_element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_down.get_overlapping_bodies():
@@ -74,7 +75,11 @@ func element_check_around_and_attach():
 			new_element.position = self.position + position_down.position
 			new_element.collision_shape.disabled = true
 			player.elements_carried.append(new_element)
-			player.elements_offsets[new_element.element_number] = get_tile_from_pos(new_element.position)
+			yield(get_tree(), "idle_frame")
+			if not new_element.element_number in player.elements_offsets.keys():
+				player.elements_offsets[new_element.element_number] = []
+			player.elements_offsets[new_element.element_number].append(get_tile_from_pos(new_element.position))
+			
 			yield(get_tree().create_timer(0.1), "timeout")
 			new_element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_right.get_overlapping_bodies():
@@ -86,7 +91,11 @@ func element_check_around_and_attach():
 			new_element.position = self.position + position_right.position
 			new_element.collision_shape.disabled = true
 			player.elements_carried.append(new_element)
-			player.elements_offsets[new_element.element_number] = get_tile_from_pos(new_element.position)
+			yield(get_tree(), "idle_frame")
+			if not new_element.element_number in player.elements_offsets.keys():
+				player.elements_offsets[new_element.element_number] = []
+			player.elements_offsets[new_element.element_number].append(get_tile_from_pos(new_element.position))
+			
 			yield(get_tree().create_timer(0.1), "timeout")
 			new_element.element_check_around_and_attach() # comment out to connect only one element at a time
 	if area_left.get_overlapping_bodies():
@@ -98,7 +107,11 @@ func element_check_around_and_attach():
 			new_element.position = self.position + position_left.position
 			new_element.collision_shape.disabled = true
 			player.elements_carried.append(new_element)
-			player.elements_offsets[new_element.element_number] = get_tile_from_pos(new_element.position)
+			yield(get_tree(), "idle_frame")
+			if not new_element.element_number in player.elements_offsets.keys():
+				player.elements_offsets[new_element.element_number] = []
+			player.elements_offsets[new_element.element_number].append(get_tile_from_pos(new_element.position))
+			
 			yield(get_tree().create_timer(0.1), "timeout")
 			new_element.element_check_around_and_attach() # comment out to connect only one element at a time
 

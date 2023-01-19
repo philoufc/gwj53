@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://visual/godot_icon.png" type="Texture" id=1]
+[ext_resource path="res://visual/godot_icon_2.png" type="Texture" id=1]
 [ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=2]
 [ext_resource path="res://fonts/fragmentmono.tres" type="DynamicFont" id=3]
 [ext_resource path="res://visual/subvertissement_logo_mod.png" type="Texture" id=4]
@@ -19,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.5 ),
+"times": PoolRealArray( 0, 1.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -31,10 +31,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( -0.3, 0, 1.3, 2.5 ),
-"transitions": PoolRealArray( 1, 0.965465, 8.57, 0.870125 ),
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 0.965465, 1 ),
 "update": 0,
-"values": [ Color( 0.215686, 0.152941, 0.341176, 0 ), Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.215686, 0.152941, 0.341176, 0 ) ]
+"values": [ Color( 0.27451, 0.258824, 0.368627, 1 ), Color( 0.27451, 0.258824, 0.368627, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("SplashGodot/CenterContainer/VBoxContainer:visible")
@@ -59,7 +59,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
+"times": PoolRealArray( 0, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -71,8 +71,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 4 ),
+"transitions": PoolRealArray( 1, 4.75683, 1 ),
 "update": 1,
 "values": [ false, true, false ]
 }
@@ -83,7 +83,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.5, 2.1 ),
+"times": PoolRealArray( 0.4, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -93,12 +93,12 @@ tracks/3/path = NodePath("SplashSubvert/SplashBG:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
-"times": PoolRealArray( -0.4, 0, 3.1, 4.3 ),
-"transitions": PoolRealArray( 1, 8.57418, 1, 1 ),
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 8.57418, 1 ),
 "update": 0,
-"values": [ Color( 0.215686, 0.152941, 0.341176, 1 ), Color( 0.152941, 0.341176, 0.2, 1 ), Color( 0.152941, 0.341176, 0.2, 1 ), Color( 0.152941, 0.341176, 0.2, 0 ) ]
+"values": [ Color( 0.27451, 0.258824, 0.368627, 1 ), Color( 0.27451, 0.258824, 0.368627, 1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("SplashSubvert/TicTacPing:volume_db")
@@ -163,6 +163,46 @@ tracks/8/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "SplashGWJ"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SplashGWJ:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SplashGWJ/CenterContainer/VBoxContainer/TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SplashGWJ/SplashCover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [node name="Menu" type="Control"]
 show_behind_parent = true
 anchor_right = 1.0
@@ -179,7 +219,6 @@ scale = Vector2( 7.85938, 2.15625 )
 texture = ExtResource( 2 )
 
 [node name="SplashSubvert" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -189,8 +228,9 @@ anchor_bottom = 1.0
 color = Color( 0.27451, 0.258824, 0.368627, 1 )
 
 [node name="SubvertissementLogo" type="Sprite" parent="SplashSubvert"]
-self_modulate = Color( 0.964706, 0.776471, 0.658824, 1 )
-position = Vector2( 509, 302 )
+visible = false
+self_modulate = Color( 0.819608, 0.486275, 0.486275, 1 )
+position = Vector2( 509, 290 )
 texture = ExtResource( 4 )
 
 [node name="SplashCover" type="ColorRect" parent="SplashSubvert"]
@@ -205,8 +245,7 @@ __meta__ = {
 
 [node name="TicTacPing" type="AudioStreamPlayer" parent="SplashSubvert"]
 stream = ExtResource( 12 )
-volume_db = -80.0
-stream_paused = true
+volume_db = -53.3333
 bus = "SoundFX"
 
 [node name="SplashGodot" type="Control" parent="."]
@@ -225,6 +264,7 @@ anchor_bottom = 1.0
 margin_top = 30.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SplashGodot/CenterContainer"]
+visible = false
 margin_left = 62.0
 margin_top = 69.0
 margin_right = 962.0
@@ -243,6 +283,7 @@ expand = true
 stretch_mode = 6
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SplashGodot/CenterContainer/VBoxContainer"]
+self_modulate = Color( 0.964706, 0.776471, 0.658824, 1 )
 margin_top = 402.0
 margin_right = 900.0
 margin_bottom = 432.0
@@ -251,7 +292,7 @@ theme = ExtResource( 8 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]godot engine v3.5.1.stable.official[/center]"
-text = "godot engine v3.5.1.stable.official"
+text = "[center]godot engine v3.5.1.stable.official[/center]"
 fit_content_height = true
 
 [node name="SplashGWJ" type="Control" parent="."]
@@ -288,12 +329,23 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
+[node name="SplashCover" type="ColorRect" parent="SplashGWJ"]
+visible = false
+anchor_left = 0.18457
+anchor_top = 0.171667
+anchor_right = 0.81543
+anchor_bottom = 0.69
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Startup" type="AnimationPlayer" parent="."]
 anims/Splash01godot = SubResource( 10 )
 anims/Splash02subver = SubResource( 11 )
+anims/SplashGWJ = SubResource( 12 )
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

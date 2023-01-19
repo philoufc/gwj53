@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Global.gd" type="Script" id=1]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=2]
@@ -21,6 +21,33 @@ tracks/0/keys = {
 "values": [ -6.0, -80.0 ]
 }
 
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Sweep:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1007, -255 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Sweep:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 912, 891 ) ]
+}
+
 [sub_resource type="Animation" id=20]
 resource_name = "ScreenVisualFadeIn"
 length = 2.0
@@ -34,7 +61,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.27451, 0.258824, 0.368627, 1 ), Color( 0.027451, 0.027451, 0.027451, 0 ) ]
+"values": [ Color( 0.27451, 0.258824, 0.368627, 1 ), Color( 0.27451, 0.258824, 0.368627, 0 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -50,7 +77,46 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.027451, 0.027451, 0.027451, 0 ), Color( 0.27451, 0.258824, 0.368627, 1 ) ]
+"values": [ Color( 0.27451, 0.258824, 0.368627, 0 ), Color( 0.27451, 0.258824, 0.368627, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "SweepFade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Sweep:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 2.21914, 0.366021 ),
+"update": 0,
+"values": [ Vector2( -1200, -376 ), Vector2( 1300, -376 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Sweep:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Sweep:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1236, 1063 ), Vector2( 1236, 1063 ) ]
 }
 
 [node name="Global" type="Control"]
@@ -61,13 +127,26 @@ margin_left = 2.0
 margin_right = 2.0
 mouse_filter = 2
 script = ExtResource( 1 )
+game_difficulty = "normal"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = -2.0
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+
+[node name="Coldfire-gb-32x" type="Sprite" parent="."]
+position = Vector2( 556, 1019 )
+scale = Vector2( 7.57031, 1.125 )
+texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
+layer = 2
 
 [node name="UI" type="MarginContainer" parent="CanvasLayer"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -80,7 +159,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 224.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 0, 64 )
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -90,6 +169,7 @@ alignment = 2
 
 [node name="MsgPanel" type="Panel" parent="CanvasLayer/UI/HBoxContainer"]
 pause_mode = 2
+visible = false
 margin_right = 680.0
 margin_bottom = 192.0
 rect_min_size = Vector2( 680, 192 )
@@ -135,18 +215,17 @@ align = 2
 valign = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
-margin_left = 768.0
+margin_left = 864.0
 margin_right = 960.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 64, 0 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 16
 
 [node name="UI_Timer" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
-margin_right = 192.0
+margin_right = 96.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 148, 64 )
+rect_min_size = Vector2( 64, 64 )
 rect_clip_content = true
 mouse_filter = 2
 size_flags_horizontal = 0
@@ -156,23 +235,22 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer"]
-modulate = Color( 1, 1, 1, 0.556863 )
-margin_right = 192.0
+margin_right = 96.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 192, 64 )
+rect_min_size = Vector2( 96, 64 )
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 2 )
 
-[node name="Timer" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer"]
-margin_left = 31.0
+[node name="Moves" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer"]
+margin_left = 40.0
 margin_top = 17.0
-margin_right = 161.0
+margin_right = 56.0
 margin_bottom = 47.0
 size_flags_horizontal = 0
 theme = ExtResource( 2 )
-text = "00 : 00 : 00"
+text = "0"
 valign = 1
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource( 6 )]
@@ -184,13 +262,26 @@ margin_left = 2.0
 margin_right = 2.0
 
 [node name="Fader" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.27451, 0.258824, 0.368627, 0 )
+
+[node name="Sweep" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1007.0
+margin_top = -255.0
+margin_right = -95.0
+margin_bottom = 636.0
+rect_rotation = 13.8828
 mouse_filter = 2
 color = Color( 0.27451, 0.258824, 0.368627, 1 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+volume_db = -6.0
 bus = "Music"
 
 [node name="DialogVoices" type="AudioStreamPlayer" parent="."]
@@ -201,12 +292,9 @@ bus = "SoundFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MenuFadeOut = SubResource( 6 )
+anims/RESET = SubResource( 21 )
 anims/ScreenVisualFadeIn = SubResource( 20 )
 anims/ScreenVisualFadeOut = SubResource( 19 )
-
-[node name="Coldfire-gb-32x" type="Sprite" parent="AnimationPlayer"]
-position = Vector2( 501, -41 )
-scale = Vector2( 7.57031, 1.125 )
-texture = ExtResource( 3 )
+anims/SweepFade = SubResource( 22 )
 
 [connection signal="gui_input" from="CanvasLayer/UI/HBoxContainer/MsgPanel" to="." method="_on_MsgPanel_gui_input"]
