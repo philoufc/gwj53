@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=12 format=2]
 
 [ext_resource path="res://fonts/ltfunk_24_shadow.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/ltfunk_42_shadow.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/ltfunk_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://themes/defaultbuttonbg.tres" type="StyleBox" id=4]
 [ext_resource path="res://themes/defaultslidergrabber.tres" type="StyleBox" id=5]
@@ -51,6 +52,13 @@ Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 1 )
+LabelDay/base_type = "Label"
+LabelDay/colors/font_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+LabelDay/colors/font_color_shadow = Color( 0.964706, 0.776471, 0.658824, 1 )
+LabelDay/constants/shadow_as_outline = 0
+LabelDay/constants/shadow_offset_x = 2
+LabelDay/constants/shadow_offset_y = 0
+LabelDay/fonts/font = ExtResource( 2 )
 Panel/styles/panel = SubResource( 36 )
 RichTextLabel/fonts/bold_font = ExtResource( 3 )
 RichTextLabel/fonts/bold_italics_font = ExtResource( 3 )

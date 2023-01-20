@@ -23,10 +23,13 @@ onready var raycast_right : RayCast2D = $RayCastRight
 onready var raycast_left : RayCast2D = $RayCastLeft
 onready var tween : Tween = $Tween
 onready var level : Node2D 
+onready var main_screen_level
 onready var position_up :Position2D = $ElementsPositions/Position2D_up
 onready var position_down :Position2D = $ElementsPositions/Position2D_down
 onready var position_right :Position2D = $ElementsPositions/Position2D_right
 onready var position_left :Position2D = $ElementsPositions/Position2D_left
+onready var cauldron :Sprite = $Cauldron
+var cauldron_final_position :Vector2
 
 var solutions :Dictionary = {
 	1: {
@@ -39,6 +42,10 @@ var solutions :Dictionary = {
 		1: [Vector2(-1, 0)],
 		3: [Vector2(1, 0)]
 	},
+	4: {
+		1: [Vector2(0, 1)],
+		2: [Vector2(0, -1)]
+	},
 	"test": {
 		1: [Vector2(1, 0)],
 		2: [Vector2(0, 1)]
@@ -48,8 +55,9 @@ var solutions :Dictionary = {
 
 func _ready() -> void:
 	yield(get_tree(), "idle_frame")
-	
+	cauldron.hide()
 	current_level = level.level_number
+	cauldron_final_position = Vector2(get_viewport_rect().size.x * 0.5, get_viewport_rect().size.y * 0.84)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -207,10 +215,19 @@ func check_if_level_complete(difficulty):
 						found_discrepancy = true
 							
 			if !found_discrepancy:
-				$LevelEnd.text = "win!"
-				$LevelEnd.show()
-				yield(get_tree().create_timer(2), "timeout")
-				$LevelEnd.hide()
+#				$LevelEnd.text = "win!"
+#				$LevelEnd.show()
+#				yield(get_tree().create_timer(2), "timeout")
+#				$LevelEnd.hide()
+				Global.keeping_scores[current_level] = Global.number_of_moves
+				print(Global.keeping_scores)
+				cauldron_assembly()
+				yield(cauldron_assembly(), "completed")
+				Global.fade_sweep()
+				yield(get_tree().create_timer(0.8), "timeout")
+				Global.ui_moves.hide()
+				main_screen_level.next_level(current_level)
+				level.queue_free()
 			else:
 				$LevelEnd.text = "nope!"
 				$LevelEnd.show()
@@ -221,6 +238,35 @@ func check_if_level_complete(difficulty):
 			$LevelEnd.show()
 			yield(get_tree().create_timer(1), "timeout")
 			$LevelEnd.hide()
+
+func cauldron_assembly():
+	cauldron.scale = Vector2(0.1, 0.1)
+	cauldron.show()
+	tween.interpolate_property(cauldron, "scale", Vector2(0.4, 0.4), Vector2(2, 2), 1.5, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+	tween.interpolate_property(cauldron, "global_position", self.global_position, cauldron_final_position, 2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
+	for element in elements_carried:
+		element.z_index = 2
+		var new_tween = Tween.new()
+		add_child(new_tween)
+		yield(get_tree(), "idle_frame")
+		new_tween.interpolate_property(element, "global_position:x", element.global_position.x, (cauldron_final_position.x + element.global_position.x) / 2, 0.4, Tween.TRANS_QUAD, Tween.EASE_IN)
+		new_tween.interpolate_property(element, "global_position:y", element.global_position.y, element.global_position.y - 64, 0.4, Tween.TRANS_LINEAR)
+		new_tween.interpolate_property(element, "scale", element.scale, element.scale * 2, 0.4)
+		new_tween.start()
+		yield(new_tween, "tween_completed")
+		remove_child(new_tween)
+		var new_tween_2 = Tween.new()
+		add_child(new_tween_2)
+		new_tween_2.interpolate_property(element, "global_position:x", element.global_position.x, cauldron_final_position.x, 0.6, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		new_tween_2.interpolate_property(element, "global_position:y", element.global_position.y, cauldron_final_position.y, 0.6, Tween.TRANS_SINE)
+		new_tween_2.interpolate_property(element, "scale", element.scale, element.scale * 0.66, 0.4)
+		new_tween_2.start()
+		yield(new_tween_2, "tween_completed")
+		element.hide()
+		remove_child(new_tween_2)
+	#bubulblblublbulublub
 
 func flatten_array(array, flattened):
 	for element in array:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://visual/godot_icon_2.png" type="Texture" id=1]
 [ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://visual/subvertissement_logo_mod.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=5]
 [ext_resource path="res://visual/gwj_logo_mod.png" type="Texture" id=6]
+[ext_resource path="res://scenes/TileMapMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=8]
 [ext_resource path="res://audio/subvertissement_splash.ogg" type="AudioStream" id=12]
 
@@ -213,6 +214,25 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1024, 600 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_clear_mode = 1
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="TileMapMenu" parent="ViewportContainer/Viewport" instance=ExtResource( 7 )]
+
+[node name="Camera2D2" type="Camera2D" parent="ViewportContainer/Viewport/TileMapMenu"]
+current = true
+
 [node name="Coldfire-gb-32x" type="Sprite" parent="."]
 position = Vector2( 512, -65 )
 scale = Vector2( 7.85938, 2.15625 )
@@ -292,7 +312,7 @@ theme = ExtResource( 8 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]godot engine v3.5.1.stable.official[/center]"
-text = "[center]godot engine v3.5.1.stable.official[/center]"
+text = "godot engine v3.5.1.stable.official"
 fit_content_height = true
 
 [node name="SplashGWJ" type="Control" parent="."]
@@ -350,6 +370,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

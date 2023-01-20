@@ -82,6 +82,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=22]
 resource_name = "SweepFade"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Sweep:rect_position")
 tracks/0/interp = 1
@@ -89,10 +90,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 1.1 ),
 "transitions": PoolRealArray( 2.21914, 0.366021 ),
 "update": 0,
-"values": [ Vector2( -1200, -376 ), Vector2( 1300, -376 ) ]
+"values": [ Vector2( -1682, -495 ), Vector2( 1300, -495 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/Sweep:visible")
@@ -101,7 +102,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -113,10 +114,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1236, 1063 ), Vector2( 1236, 1063 ) ]
+"values": [ Vector2( 1732, 1188 ) ]
 }
 
 [node name="Global" type="Control"]
@@ -137,8 +138,8 @@ margin_right = -2.0
 color = Color( 0.27451, 0.258824, 0.368627, 1 )
 
 [node name="Coldfire-gb-32x" type="Sprite" parent="."]
-position = Vector2( 556, 1019 )
-scale = Vector2( 7.57031, 1.125 )
+position = Vector2( -1137, -161 )
+scale = Vector2( 7.57031, 21.6562 )
 texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -222,7 +223,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 16
 
-[node name="UI_Timer" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
+[node name="UIMoves" type="CenterContainer" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer"]
 margin_right = 96.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
@@ -234,7 +235,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Panel" type="Panel" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves"]
 margin_right = 96.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 96, 64 )
@@ -243,7 +244,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 2 )
 
-[node name="Moves" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer"]
+[node name="Moves" type="Label" parent="CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves"]
 margin_left = 40.0
 margin_top = 17.0
 margin_right = 56.0
@@ -269,7 +270,6 @@ mouse_filter = 2
 color = Color( 0.27451, 0.258824, 0.368627, 0 )
 
 [node name="Sweep" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1007.0
@@ -278,7 +278,7 @@ margin_right = -95.0
 margin_bottom = 636.0
 rect_rotation = 13.8828
 mouse_filter = 2
-color = Color( 0.27451, 0.258824, 0.368627, 1 )
+color = Color( 0.356863, 0.462745, 0.552941, 1 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 volume_db = -6.0

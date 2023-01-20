@@ -2,7 +2,11 @@ extends Control
 
 const TILE_SIZE = 64
 
-var is_menu = false
+var narrative = [
+
+]
+
+#var is_menu = false
 #onready var msg_panel = $CanvasLayer/UI/HBoxContainer/MsgPanel
 #onready var msg_richtext = $CanvasLayer/UI/HBoxContainer/MsgPanel/VBoxContainer/RichTextLabel
 #onready var msg_continue = $CanvasLayer/UI/HBoxContainer/MsgPanel/VBoxContainer/ContinueMsg
@@ -14,6 +18,7 @@ onready var sweep = $CanvasLayer/Sweep
 onready var menu_music = $MenuMusic
 onready var animation_player = $AnimationPlayer
 
+var current_level = 0
 var number_of_moves :int = 0
 var keeping_scores :Dictionary = {}
 
@@ -41,19 +46,19 @@ var timer_on = false
 var time = 0
 var time_passed
 #onready var timer = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer/Timer
-onready var moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer/Moves
-onready var ui_timer = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UI_Timer
+onready var moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves/Moves
+onready var ui_moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves
 
 
 func _ready():
-	fader.visible = false
+	fader.hide()
 	sweep.hide()
 	yield(get_tree(), "idle_frame")
 	music_volume = AudioServer.get_bus_volume_db(1)
 	fx_volume = AudioServer.get_bus_volume_db(2)
-	settings.visible = false
-	credits.visible = false
-#	ui_timer.visible = false
+	settings.hide()
+	credits.hide()
+	ui_moves.hide()
 
 func update_ui():
 	moves.text = str(number_of_moves)

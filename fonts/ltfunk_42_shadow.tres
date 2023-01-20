@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://fonts/LT Funk.otf" type="DynamicFontData" id=1]
+
+[resource]
+size = 84
+outline_size = 2
+outline_color = Color( 0.964706, 0.776471, 0.658824, 1 )
+extra_spacing_top = 2
+extra_spacing_char = 8
+font_data = ExtResource( 1 )
