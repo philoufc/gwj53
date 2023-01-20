@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=12 format=2]
+[gd_resource type="Resource" load_steps=34 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -38,55 +38,343 @@ sheet_description = "Don't delete this please. You don't have to use it either."
 next_sequence_id = 1
 nodes = [ SubResource( 2 ) ]
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 4 )
-item_type = 0
-connected_to_id = -1
-message_speaker_id = "player"
-message_speaker_variant = ""
-message_voice_clip = ""
-message_text = "test"
-message_hide_on_end = 0
-condition_type = 0
-condition_values = [  ]
-effect_type = 0
-effect_values = [  ]
-
-[sub_resource type="Resource" id=5]
-script = ExtResource( 4 )
-item_type = 0
-connected_to_id = -1
-message_speaker_id = "teacher"
-message_speaker_variant = ""
-message_voice_clip = ""
-message_text = "[b]replying to test![/b]"
-message_hide_on_end = 0
-condition_type = 0
-condition_values = [  ]
-effect_type = 0
-effect_values = [  ]
-
 [sub_resource type="Resource" id=6]
 script = ExtResource( 1 )
 sequence_id = 0
 position = Vector2( 0, 0 )
 comment = ""
-items = [ SubResource( 4 ), SubResource( 5 ) ]
+items = [  ]
+options = [  ]
+continue_sequence_id = 1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l01.ogg"
+message_text = "Alright, kid. Here's where the magic happens."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "This is your brewing room...?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l03.ogg"
+message_text = "Yup. Forget everything you think you know about witches! You want to make potions, this is what it takes:"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l04.ogg"
+message_text = "A tonne of ingredients, an open fire, and a callous disregard for workplace safety protocols!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l05.ogg"
+message_text = "Now, you don't have to say it. You're impressed, I can tell."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l06.ogg"
+message_text = "Actually, come to think it - nah, you can say it. Pretty cool, huh?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 1 )
+sequence_id = 1
+position = Vector2( 400, 0 )
+comment = ""
+items = [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+options = [  ]
+continue_sequence_id = 2
+continue_port_index = 0
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...You call that a cauldron? It's tiny!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=16]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l08.ogg"
+message_text = "What!? Oh, please. The only witches that use those massive cauldrons are posers."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l09.ogg"
+message_text = "Show me a witch who needs two-hundred litres of apple blood and I'll show you a witch with a _serious_ drinking problem."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 1 )
+sequence_id = 2
+position = Vector2( 800, 0 )
+comment = ""
+items = [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ]
+options = [  ]
+continue_sequence_id = 3
+continue_port_index = 0
+
+[sub_resource type="Resource" id=19]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "EEEEEEE! A broom! And it's moving all by itself!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=20]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l11.ogg"
+message_text = "Well, sure, it's enchanted. Does all the cleaning, and I don't have to lift a finger. I call it the Broomba."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=21]
+script = ExtResource( 1 )
+sequence_id = 3
+position = Vector2( 1200, 0 )
+comment = ""
+items = [ SubResource( 19 ), SubResource( 20 ) ]
+options = [  ]
+continue_sequence_id = 4
+continue_port_index = 0
+
+[sub_resource type="Resource" id=22]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l12.ogg"
+message_text = "...Hey kid, remind me. Did I kidnap you, or did you just show up?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=23]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Ahahaha! I came here myself, of course!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=24]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "That... that was a joke, right?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=25]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l15.ogg"
+message_text = "Yeah, sure. Look, it's not easy to get students these days. Maybe I really do need a publicist..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=26]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l16.ogg"
+message_text = "...Pfft. Nah, no good witch would advertise it."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=27]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l17.ogg"
+message_text = "Did you ever see one of those idiots hawking their 'potions' in town? Trust me: they couldn't tell Adder's fork from Adder's spoon."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=28]
+script = ExtResource( 1 )
+sequence_id = 4
+position = Vector2( 1600, 0 )
+comment = ""
+items = [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ]
+options = [  ]
+continue_sequence_id = 5
+continue_port_index = 0
+
+[sub_resource type="Resource" id=29]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l17.ogg"
+message_text = "Anyway! If it's potions you want to know about, I can teach ya."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=30]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s1l19.ogg"
+message_text = "You can forget the textbooks, though. Only way to learn this stuff is to do it."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=31]
+script = ExtResource( 1 )
+sequence_id = 5
+position = Vector2( 2000, 0 )
+comment = ""
+items = [ SubResource( 29 ), SubResource( 30 ) ]
 options = [  ]
 continue_sequence_id = -1
 continue_port_index = 0
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 2 )
-sheet_id = "new_sheet_1"
+sheet_id = "scene1"
 sheet_description = ""
-next_sequence_id = 1
-nodes = [ SubResource( 6 ) ]
+next_sequence_id = 6
+nodes = [ SubResource( 6 ), SubResource( 14 ), SubResource( 18 ), SubResource( 21 ), SubResource( 28 ), SubResource( 31 ) ]
 
 [resource]
 script = ExtResource( 3 )
 version = 1.0
 sheets = {
 "first_sheet": SubResource( 3 ),
-"new_sheet_1": SubResource( 7 )
+"scene1": SubResource( 7 )
 }
