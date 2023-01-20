@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=52 format=2]
+[gd_resource type="Resource" load_steps=71 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -600,11 +600,251 @@ sheet_description = ""
 next_sequence_id = 4
 nodes = [ SubResource( 32 ), SubResource( 36 ), SubResource( 43 ), SubResource( 48 ) ]
 
+[sub_resource type="Resource" id=50]
+script = ExtResource( 1 )
+sequence_id = 0
+position = Vector2( 0, 0 )
+comment = ""
+items = [  ]
+options = [  ]
+continue_sequence_id = 1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=51]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l01.ogg"
+message_text = "Not bad, kid. We'll call it a day there."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=52]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hah! Look out, world - here comes Ciara the Conjurer!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=53]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hey, that reminds me. Where do you keep your magic wand?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=54]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l03.ogg"
+message_text = "I _beg_ your pardon?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=55]
+script = ExtResource( 1 )
+sequence_id = 1
+position = Vector2( 400, 0 )
+comment = ""
+items = [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ) ]
+options = [  ]
+continue_sequence_id = 2
+continue_port_index = 0
+
+[sub_resource type="Resource" id=56]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Erm... your wand. That you cast spells with."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=57]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l05.ogg"
+message_text = "Oh! I lost it."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=58]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You... lost it?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=59]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l07.ogg"
+message_text = "Eh. Someone swiped it last time I was in Grandwell."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=60]
+script = ExtResource( 1 )
+sequence_id = 2
+position = Vector2( 800, 0 )
+comment = ""
+items = [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ) ]
+options = [  ]
+continue_sequence_id = 3
+continue_port_index = 0
+
+[sub_resource type="Resource" id=61]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l08.ogg"
+message_text = "Would've been fine, but the insurance company stiffed me. That's the last time I go with third party, fire and theft."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=62]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "But you said it was stolen. You're covered for theft."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=63]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l10.ogg"
+message_text = "Yeah, but not on its own! Third party, fire _and_ theft. Needs to be all three."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=64]
+script = ExtResource( 1 )
+sequence_id = 3
+position = Vector2( 1200, 0 )
+comment = ""
+items = [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ]
+options = [  ]
+continue_sequence_id = 4
+continue_port_index = 0
+
+[sub_resource type="Resource" id=65]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...Has that ever happened?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=66]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = "res://audio/vo/s3l12.ogg"
+message_text = "I can neither confirm nor deny."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=67]
+script = ExtResource( 1 )
+sequence_id = 4
+position = Vector2( 1600, 0 )
+comment = ""
+items = [ SubResource( 65 ), SubResource( 66 ) ]
+options = [  ]
+continue_sequence_id = -1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=68]
+script = ExtResource( 2 )
+sheet_id = "scene3"
+sheet_description = ""
+next_sequence_id = 5
+nodes = [ SubResource( 50 ), SubResource( 55 ), SubResource( 60 ), SubResource( 64 ), SubResource( 67 ) ]
+
 [resource]
 script = ExtResource( 3 )
 version = 1.0
 sheets = {
 "first_sheet": SubResource( 3 ),
 "scene1": SubResource( 7 ),
-"scene2": SubResource( 49 )
+"scene2": SubResource( 49 ),
+"scene3": SubResource( 68 )
 }
