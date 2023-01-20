@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://visual/godot_icon_2.png" type="Texture" id=1]
 [ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://visual/gwj_logo_mod.png" type="Texture" id=6]
 [ext_resource path="res://scenes/TileMapMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=8]
+[ext_resource path="res://visual/logo.png" type="Texture" id=9]
+[ext_resource path="res://visual/cauldrons.png" type="Texture" id=10]
 [ext_resource path="res://audio/subvertissement_splash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=10]
@@ -230,9 +232,6 @@ gui_disable_input = true
 
 [node name="TileMapMenu" parent="ViewportContainer/Viewport" instance=ExtResource( 7 )]
 
-[node name="Camera2D2" type="Camera2D" parent="ViewportContainer/Viewport/TileMapMenu"]
-current = true
-
 [node name="Coldfire-gb-32x" type="Sprite" parent="."]
 position = Vector2( 512, -65 )
 scale = Vector2( 7.85938, 2.15625 )
@@ -375,19 +374,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = -592.0
+margin_top = -252.0
+margin_right = 99.0
+margin_bottom = 303.0
+rect_rotation = -2.0
 color = Color( 0.356863, 0.462745, 0.552941, 1 )
-
-[node name="Label" type="Label" parent="MainMenu"]
-margin_left = 41.0
-margin_top = 55.0
-margin_right = 799.0
-margin_bottom = 111.0
-theme = ExtResource( 8 )
-text = "blurry background of a level tilemap with random panning around?"
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 anchor_left = 0.736328
@@ -403,16 +395,22 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
-margin_top = 204.0
+margin_top = 85.0
 margin_right = 224.0
-margin_bottom = 558.0
+margin_bottom = 514.0
 size_flags_horizontal = 3
-size_flags_vertical = 8
+size_flags_vertical = 4
 custom_constants/separation = 21
 
-[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="MainMenu/MarginContainer/VBoxContainer"]
 margin_right = 224.0
 margin_bottom = 54.0
+rect_min_size = Vector2( 0, 54 )
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 224.0
+margin_bottom = 129.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
 text = "Play with Potions"
@@ -421,9 +419,9 @@ __meta__ = {
 }
 
 [node name="Settings" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 75.0
+margin_top = 150.0
 margin_right = 224.0
-margin_bottom = 129.0
+margin_bottom = 204.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
 text = "Ciara's Cauldron"
@@ -432,9 +430,9 @@ __meta__ = {
 }
 
 [node name="Credits" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 150.0
+margin_top = 225.0
 margin_right = 224.0
-margin_bottom = 204.0
+margin_bottom = 279.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
 text = "Galar's Brew"
@@ -443,9 +441,9 @@ __meta__ = {
 }
 
 [node name="Exit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 225.0
+margin_top = 300.0
 margin_right = 224.0
-margin_bottom = 279.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
 text = "The Witch's Tower"
@@ -454,15 +452,33 @@ __meta__ = {
 }
 
 [node name="Exit2" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 300.0
+margin_top = 375.0
 margin_right = 224.0
-margin_bottom = 354.0
+margin_bottom = 429.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
 text = "Líadan's Broomba"
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+light_mask = 0
+margin_left = 43.0
+margin_top = 15.0
+margin_right = 681.0
+margin_bottom = 392.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Cauldrons" type="Sprite" parent="MainMenu/TextureRect"]
+light_mask = 0
+position = Vector2( 320, 458 )
+scale = Vector2( 3.60938, 3.60938 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
 
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]

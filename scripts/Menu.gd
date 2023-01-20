@@ -9,24 +9,27 @@ onready var settings_button = $MainMenu/MarginContainer/VBoxContainer/Settings
 onready var credits_button = $MainMenu/MarginContainer/VBoxContainer/Credits
 onready var exit_button = $MainMenu/MarginContainer/VBoxContainer/Exit
 onready var startup = $Startup
+onready var background_tilemap = $ViewportContainer/Viewport/TileMapMenu
 
 func _ready():
-	splash_godot.visible = false
-	splash_gwj.visible = false
-	splash_subvert.visible = false
-	main_menu.visible = false
+	background_tilemap.hide()
+	splash_godot.hide()
+	splash_gwj.hide()
+	splash_subvert.hide()
+	main_menu.hide()
 	if OS.has_feature("HTML5"):
-		exit_button.visible = false
+		exit_button.hide()
 	yield(get_tree(), "idle_frame")
 	boot_sequence()
 
 func boot_sequence():
-	startup.play("Splash01godot")
-	yield(startup, "animation_finished")
-	startup.play("SplashGWJ")
-	yield(startup, "animation_finished")
-	startup.play("Splash02subver")
-	yield(startup, "animation_finished")
+#	startup.play("Splash01godot")
+#	yield(startup, "animation_finished")
+#	startup.play("SplashGWJ")
+#	yield(startup, "animation_finished")
+#	startup.play("Splash02subver")
+#	yield(startup, "animation_finished")
+	
 #	yield(get_tree().create_timer(4.0), "timeout")
 
 # TODO send me your splashes!
@@ -35,6 +38,7 @@ func boot_sequence():
 
 	Global.FadeIn()
 	yield(Global.FadeIn(), "completed")
+	background_tilemap.show()
 	main_menu.show()
 
 func _on_Play_pressed() -> void:
