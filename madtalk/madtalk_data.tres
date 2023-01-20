@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=190 format=2]
+[gd_resource type="Resource" load_steps=193 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -47,6 +47,20 @@ items = [  ]
 options = [  ]
 continue_sequence_id = 1
 continue_port_index = 0
+
+[sub_resource type="Resource" id=188]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_camera_anim", "camera1" ]
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 4 )
@@ -137,7 +151,7 @@ script = ExtResource( 1 )
 sequence_id = 1
 position = Vector2( 400, 0 )
 comment = ""
-items = [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+items = [ SubResource( 188 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
 options = [  ]
 continue_sequence_id = 2
 continue_port_index = 0
@@ -194,6 +208,20 @@ options = [  ]
 continue_sequence_id = 3
 continue_port_index = 0
 
+[sub_resource type="Resource" id=189]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_camera_anim", "camera2" ]
+
 [sub_resource type="Resource" id=19]
 script = ExtResource( 4 )
 item_type = 0
@@ -222,12 +250,26 @@ condition_values = [  ]
 effect_type = 0
 effect_values = [  ]
 
+[sub_resource type="Resource" id=190]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_camera_anim", "camera3" ]
+
 [sub_resource type="Resource" id=21]
 script = ExtResource( 1 )
 sequence_id = 3
 position = Vector2( 1200, 0 )
 comment = ""
-items = [ SubResource( 19 ), SubResource( 20 ) ]
+items = [ SubResource( 189 ), SubResource( 19 ), SubResource( 20 ), SubResource( 190 ) ]
 options = [  ]
 continue_sequence_id = 4
 continue_port_index = 0

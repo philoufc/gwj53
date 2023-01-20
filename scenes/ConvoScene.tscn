@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/convo.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/ConvoScene.gd" type="Script" id=2]
 [ext_resource path="res://madtalk/madtalk_runtime.gd" type="Script" id=3]
 [ext_resource path="res://fonts/convo_bold.tres" type="DynamicFont" id=4]
+[ext_resource path="res://3d/Room.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/convo_box.png" type="Texture" id=6]
 [ext_resource path="res://assets/mugshots/placeholder.png" type="Texture" id=7]
 [ext_resource path="res://madtalk/CharacterData.gd" type="Script" id=8]
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -26,6 +30,19 @@ variants = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.27451, 0.258824, 0.368627, 1 )
+
+[node name="TextureRect_Viewport" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 6
+flip_v = true
 
 [node name="DialogueBox" type="Control" parent="."]
 anchor_left = 0.5
@@ -66,6 +83,12 @@ margin_right = 80.0
 margin_bottom = 72.0
 texture = ExtResource( 7 )
 
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1024, 600 )
+size_override_stretch = true
+
+[node name="Room" parent="Viewport" instance=ExtResource( 5 )]
+
 [node name="MadTalk" type="Node" parent="."]
 script = ExtResource( 3 )
 ListOfCharacters = [ SubResource( 1 ), SubResource( 2 ) ]
@@ -76,4 +99,5 @@ DialogSpeakerAvatar = NodePath("../DialogueBox/Mugshot")
 
 [node name="Audio_VoiceClip" type="AudioStreamPlayer" parent="."]
 
+[connection signal="activate_custom_effect" from="MadTalk" to="." method="_on_MadTalk_activate_custom_effect"]
 [connection signal="voice_clip_requested" from="MadTalk" to="." method="_on_MadTalk_voice_clip_requested"]
