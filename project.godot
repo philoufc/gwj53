@@ -98,7 +98,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="gwj53 - assembly req"
+config/name="Ciara and the Witch's Cauldron"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.27451, 0.258824, 0.368627, 1 )
 config/icon="res://icon.png"
@@ -110,6 +110,7 @@ default_bus_layout="res://audio/default_bus_layout.tres"
 [autoload]
 
 Global="*res://scenes/Global.tscn"
+MadTalkGlobals="*res://madtalk/MadTalkGlobals.gd"
 
 [display]
 
@@ -153,6 +154,11 @@ left={
 level_reset={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+next_line={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
