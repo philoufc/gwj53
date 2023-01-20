@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=167 format=2]
+[gd_resource type="Resource" load_steps=190 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -2090,6 +2090,305 @@ sheet_description = ""
 next_sequence_id = 7
 nodes = [ SubResource( 137 ), SubResource( 145 ), SubResource( 152 ), SubResource( 160 ), SubResource( 163 ) ]
 
+[sub_resource type="Resource" id=165]
+script = ExtResource( 1 )
+sequence_id = 0
+position = Vector2( 0, 0 )
+comment = ""
+items = [  ]
+options = [  ]
+continue_sequence_id = 1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=166]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Ms. Líadan, wake up! I got it!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=167]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You did, huh? ...Yeah, that's it, alright. Heh. Good job, kid."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=168]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hurry up - you've got to drink this!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=169]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...No, Ciara. It's no use."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=170]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "What...?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=171]
+script = ExtResource( 1 )
+sequence_id = 1
+position = Vector2( 400, 0 )
+comment = ""
+items = [ SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ) ]
+options = [  ]
+continue_sequence_id = 2
+continue_port_index = 0
+
+[sub_resource type="Resource" id=172]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Galar's disease can be cured... at first. But I've had it too long."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=173]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Save that for your mother. It isn't too late for her."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=174]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "No... no, don't say it, please..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=175]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I watched so many of my friends die from that wretched disease. I tried for so long to find a cure."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=176]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You've done what I couldn't. I'm so proud of you."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=177]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...There has to be something..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=178]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "It's okay, Ciara. I lived long enough to see someone find a cure."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=179]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "That's what I was holding on for. I can rest now."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=180]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Go. Go to your mother."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=181]
+script = ExtResource( 1 )
+sequence_id = 2
+position = Vector2( 800, 0 )
+comment = ""
+items = [ SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ) ]
+options = [  ]
+continue_sequence_id = 3
+continue_port_index = 0
+
+[sub_resource type="Resource" id=182]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Y-you're way too stubborn, you know that? I'll go, but I'm coming back!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=183]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I'll find a way to help you. I'll make sure no-one else dies from this disease, you hear me?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=184]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...Ms. Líadan?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=185]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...Oh no..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=186]
+script = ExtResource( 1 )
+sequence_id = 3
+position = Vector2( 1200, 0 )
+comment = ""
+items = [ SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ) ]
+options = [  ]
+continue_sequence_id = -1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=187]
+script = ExtResource( 2 )
+sheet_id = "scene7"
+sheet_description = ""
+next_sequence_id = 4
+nodes = [ SubResource( 165 ), SubResource( 171 ), SubResource( 181 ), SubResource( 186 ) ]
+
 [resource]
 script = ExtResource( 3 )
 version = 1.0
@@ -2100,5 +2399,6 @@ sheets = {
 "scene3": SubResource( 68 ),
 "scene4": SubResource( 95 ),
 "scene5": SubResource( 136 ),
-"scene6": SubResource( 164 )
+"scene6": SubResource( 164 ),
+"scene7": SubResource( 187 )
 }
