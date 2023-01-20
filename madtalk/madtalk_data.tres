@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=139 format=2]
+[gd_resource type="Resource" load_steps=167 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -1310,7 +1310,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l01.ogg"
 message_text = "Eurgh... smells like a cat got turned inside-out in here. Again."
 message_hide_on_end = 0
 condition_type = 0
@@ -1324,7 +1324,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l02.ogg"
 message_text = "You're not still at it, are you, kid?"
 message_hide_on_end = 0
 condition_type = 0
@@ -1352,7 +1352,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l04.ogg"
 message_text = "Come on, it's late. You must be exhausted."
 message_hide_on_end = 0
 condition_type = 0
@@ -1366,7 +1366,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l05.ogg"
 message_text = "Let's go get some shut-eye. You're supposed to _look_ hagged, not _feel_ hagged."
 message_hide_on_end = 0
 condition_type = 0
@@ -1394,7 +1394,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l07.ogg"
 message_text = "Come on! Step right up, one mattress, guaranteed one-hundred percent bed-bug free! Probably."
 message_hide_on_end = 0
 condition_type = 0
@@ -1446,7 +1446,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l10.ogg"
 message_text = "...I can't."
 message_hide_on_end = 0
 condition_type = 0
@@ -1484,7 +1484,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l12.ogg"
 message_text = "Because I don't know how. After all of my research, everything I did to track down the chemicals that would nullify the disease..."
 message_hide_on_end = 0
 condition_type = 0
@@ -1498,7 +1498,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l13.ogg"
 message_text = "I could never figure out how to assemble them properly. Everything I tried just blew up in my face."
 message_hide_on_end = 0
 condition_type = 0
@@ -1550,7 +1550,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l16.ogg"
 message_text = "...Ciara, there's something you don't know about Galar's disease."
 message_hide_on_end = 0
 condition_type = 0
@@ -1578,7 +1578,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l18.ogg"
 message_text = "The reason it's so rare. It only affects those with magic in their blood."
 message_hide_on_end = 0
 condition_type = 0
@@ -1606,7 +1606,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l20.ogg"
 message_text = "That's why I took you in. If your mother is sick, it means she's one of us."
 message_hide_on_end = 0
 condition_type = 0
@@ -1630,7 +1630,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l21.ogg"
 message_text = "Which means _you're_ one of us."
 message_hide_on_end = 0
 condition_type = 0
@@ -1672,7 +1672,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l24.ogg"
 message_text = "The first witch I've seen in a very long time. Didn't think I'd ever meet another."
 message_hide_on_end = 0
 condition_type = 0
@@ -1686,7 +1686,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = ""
+message_voice_clip = "res://audio/vo/s5l25.ogg"
 message_text = "That disease... didn't leave many of us behind."
 message_hide_on_end = 0
 condition_type = 0
@@ -1725,6 +1725,371 @@ sheet_description = ""
 next_sequence_id = 6
 nodes = [ SubResource( 104 ), SubResource( 112 ), SubResource( 117 ), SubResource( 122 ), SubResource( 128 ), SubResource( 135 ) ]
 
+[sub_resource type="Resource" id=137]
+script = ExtResource( 1 )
+sequence_id = 0
+position = Vector2( 0, 0 )
+comment = ""
+items = [  ]
+options = [  ]
+continue_sequence_id = 1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=138]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I do feel better, I guess."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=139]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Ms. Líadan? I'm up!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=140]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "...Guess she's lying in."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=141]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Am I really a witch? The first she's seen since she came here?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=142]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hang on... if Galar's disease only affects witches..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=143]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I was with Mum for a while when she got sick. Maybe I've got it."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=144]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Maybe I've passed it to her...?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=145]
+script = ExtResource( 1 )
+sequence_id = 1
+position = Vector2( 400, 0 )
+comment = ""
+items = [ SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ) ]
+options = [  ]
+continue_sequence_id = 2
+continue_port_index = 0
+
+[sub_resource type="Resource" id=146]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Heh. Don't go giving yourself the credit, kid."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=147]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Ms. Líadan! I didn't hear-"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=148]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You... you're pale!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=149]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Only just noticed, huh?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=150]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Oh no... oh no, no, no! I've given it to you!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=151]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Quickly, sit down over here... I need to think of... think of something..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=152]
+script = ExtResource( 1 )
+sequence_id = 2
+position = Vector2( 800, 0 )
+comment = ""
+items = [ SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ) ]
+options = [  ]
+continue_sequence_id = 3
+continue_port_index = 0
+
+[sub_resource type="Resource" id=153]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Calm down, Ciara. I've been like this for a while."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=154]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "What do you mean? You've got all the symptoms you told me about!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=155]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Yup. Paleness is just the first stage. Kind of hard to spot when you spend all day in a tower."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=156]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "But this... doesn't happen until much later."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=157]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You... you've had it this whole time?"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=158]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I've had it for years. I've managed to slow it down - that's how I knew I was on the right track with those ingredients."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=159]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "liadan"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "But I guess it caught up to me..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=160]
+script = ExtResource( 1 )
+sequence_id = 3
+position = Vector2( 1200, 0 )
+comment = ""
+items = [ SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ) ]
+options = [  ]
+continue_sequence_id = 4
+continue_port_index = 0
+
+[sub_resource type="Resource" id=161]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "The right ingredients..."
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=162]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "ciara"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I'll figure it out. Hang on, Ms. Líadan!"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
+[sub_resource type="Resource" id=163]
+script = ExtResource( 1 )
+sequence_id = 4
+position = Vector2( 1600, 0 )
+comment = ""
+items = [ SubResource( 161 ), SubResource( 162 ) ]
+options = [  ]
+continue_sequence_id = -1
+continue_port_index = 0
+
+[sub_resource type="Resource" id=164]
+script = ExtResource( 2 )
+sheet_id = "scene6"
+sheet_description = ""
+next_sequence_id = 7
+nodes = [ SubResource( 137 ), SubResource( 145 ), SubResource( 152 ), SubResource( 160 ), SubResource( 163 ) ]
+
 [resource]
 script = ExtResource( 3 )
 version = 1.0
@@ -1734,5 +2099,6 @@ sheets = {
 "scene2": SubResource( 49 ),
 "scene3": SubResource( 68 ),
 "scene4": SubResource( 95 ),
-"scene5": SubResource( 136 )
+"scene5": SubResource( 136 ),
+"scene6": SubResource( 164 )
 }
