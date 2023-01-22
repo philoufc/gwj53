@@ -98,6 +98,10 @@ DialogMessageLabel = NodePath("../DialogueBox/Dialogue")
 DialogSpeakerAvatar = NodePath("../DialogueBox/Mugshot")
 
 [node name="Audio_VoiceClip" type="AudioStreamPlayer" parent="."]
+bus = "VoiceActing"
+
+[node name="Audio_SoundEffect" type="AudioStreamPlayer" parent="."]
+bus = "SoundFX"
 
 [connection signal="activate_custom_effect" from="MadTalk" to="." method="_on_MadTalk_activate_custom_effect"]
 [connection signal="dialog_finished" from="MadTalk" to="." method="_on_MadTalk_dialog_finished"]

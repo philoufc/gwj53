@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/doorbell.ogg-2220680c4f655d186b73f4c4250b10d2.oggstr"
+
+[deps]
+
+source_file="res://audio/doorbell.ogg"
+dest_files=[ "res://.import/doorbell.ogg-2220680c4f655d186b73f4c4250b10d2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

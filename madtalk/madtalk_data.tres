@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=193 format=2]
+[gd_resource type="Resource" load_steps=203 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -61,6 +61,34 @@ condition_type = 0
 condition_values = [  ]
 effect_type = 10
 effect_values = [ "play_camera_anim", "camera1" ]
+
+[sub_resource type="Resource" id=191]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_broom_anim", "broom" ]
+
+[sub_resource type="Resource" id=192]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_music", "2" ]
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 4 )
@@ -151,7 +179,7 @@ script = ExtResource( 1 )
 sequence_id = 1
 position = Vector2( 400, 0 )
 comment = ""
-items = [ SubResource( 188 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+items = [ SubResource( 188 ), SubResource( 191 ), SubResource( 192 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
 options = [  ]
 continue_sequence_id = 2
 continue_port_index = 0
@@ -374,7 +402,7 @@ item_type = 0
 connected_to_id = -1
 message_speaker_id = "liadan"
 message_speaker_variant = ""
-message_voice_clip = "res://audio/vo/s1l17.ogg"
+message_voice_clip = "res://audio/vo/s1l18.ogg"
 message_text = "Anyway! If it's potions you want to know about, I can teach ya."
 message_hide_on_end = 0
 condition_type = 0
@@ -891,6 +919,48 @@ options = [  ]
 continue_sequence_id = 1
 continue_port_index = 0
 
+[sub_resource type="Resource" id=193]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_camera_anim", "camera1" ]
+
+[sub_resource type="Resource" id=196]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_sfx", "doorbell" ]
+
+[sub_resource type="Resource" id=197]
+script = ExtResource( 4 )
+item_type = 0
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "[b]ding dong[b]"
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 0
+effect_values = [  ]
+
 [sub_resource type="Resource" id=70]
 script = ExtResource( 4 )
 item_type = 0
@@ -905,6 +975,20 @@ condition_values = [  ]
 effect_type = 0
 effect_values = [  ]
 
+[sub_resource type="Resource" id=198]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_sfx", "footsteps_out" ]
+
 [sub_resource type="Resource" id=71]
 script = ExtResource( 4 )
 item_type = 0
@@ -918,6 +1002,20 @@ condition_type = 0
 condition_values = [  ]
 effect_type = 0
 effect_values = [  ]
+
+[sub_resource type="Resource" id=199]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_sfx", "footsteps_in" ]
 
 [sub_resource type="Resource" id=72]
 script = ExtResource( 4 )
@@ -938,7 +1036,7 @@ script = ExtResource( 1 )
 sequence_id = 1
 position = Vector2( 400, 0 )
 comment = ""
-items = [ SubResource( 70 ), SubResource( 71 ), SubResource( 72 ) ]
+items = [ SubResource( 193 ), SubResource( 196 ), SubResource( 197 ), SubResource( 70 ), SubResource( 198 ), SubResource( 71 ), SubResource( 199 ), SubResource( 72 ) ]
 options = [  ]
 continue_sequence_id = 2
 continue_port_index = 0
@@ -999,12 +1097,26 @@ condition_values = [  ]
 effect_type = 0
 effect_values = [  ]
 
+[sub_resource type="Resource" id=200]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_sfx", "envelope" ]
+
 [sub_resource type="Resource" id=78]
 script = ExtResource( 1 )
 sequence_id = 2
 position = Vector2( 800, 0 )
 comment = ""
-items = [ SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ]
+items = [ SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 200 ) ]
 options = [  ]
 continue_sequence_id = 3
 continue_port_index = 0
@@ -1051,6 +1163,20 @@ condition_values = [  ]
 effect_type = 0
 effect_values = [  ]
 
+[sub_resource type="Resource" id=194]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_music", "3" ]
+
 [sub_resource type="Resource" id=82]
 script = ExtResource( 4 )
 item_type = 0
@@ -1084,7 +1210,7 @@ script = ExtResource( 1 )
 sequence_id = 3
 position = Vector2( 1200, 0 )
 comment = ""
-items = [ SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ) ]
+items = [ SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 194 ), SubResource( 82 ), SubResource( 83 ) ]
 options = [  ]
 continue_sequence_id = 4
 continue_port_index = 0
@@ -1291,6 +1417,20 @@ options = [  ]
 continue_sequence_id = 6
 continue_port_index = 0
 
+[sub_resource type="Resource" id=195]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "fade_out_music", "0" ]
+
 [sub_resource type="Resource" id=101]
 script = ExtResource( 4 )
 item_type = 0
@@ -1324,7 +1464,7 @@ script = ExtResource( 1 )
 sequence_id = 6
 position = Vector2( 2400, 0 )
 comment = ""
-items = [ SubResource( 101 ), SubResource( 102 ) ]
+items = [ SubResource( 195 ), SubResource( 101 ), SubResource( 102 ) ]
 options = [  ]
 continue_sequence_id = -1
 continue_port_index = 0
