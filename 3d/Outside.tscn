@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://3d/meshes/tower.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://3d/anims/outside.anim" type="Animation" id=2]
 [ext_resource path="res://3d/materials/Moon.material" type="Material" id=3]
 [ext_resource path="res://3d/materials/Material.material" type="Material" id=4]
+[ext_resource path="res://3d/Outside.gd" type="Script" id=5]
 [ext_resource path="res://3d/meshes/ground.mesh" type="ArrayMesh" id=6]
 
 [sub_resource type="ArrayMesh" id=4]
@@ -39,6 +40,7 @@ surfaces/0 = {
 }
 
 [node name="Outside" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="CameraArm" type="Spatial" parent="."]
 transform = Transform( 0.999997, -3.43146e-06, 0.00225503, 4.13539e-08, 0.999999, 0.00150335, -0.00225503, -0.00150335, 0.999996, 0, 0, 0 )
@@ -65,3 +67,5 @@ mesh = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/outside = ExtResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

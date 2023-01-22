@@ -1,8 +1,17 @@
 extends Control
 
+onready var sounds : Dictionary = {
+	"doorbell": preload("res://audio/doorbell.ogg"),
+	"envelope": preload("res://audio/envelope.ogg"),
+	"footsteps_in": preload("res://audio/footsteps_in.ogg"),
+	"footsteps_out": preload("res://audio/footsteps_out.ogg"),
+}
+
 onready var mad_talk : Node = $MadTalk
 onready var room : Spatial = $Viewport/Room
 onready var audio_voice_clip : AudioStreamPlayer = $Audio_VoiceClip
+onready var audio_sound_effect : AudioStreamPlayer = $Audio_SoundEffect
+onready var audio_ambience : AudioStreamPlayer = $Audio_Ambience
 
 signal scene_done
 
@@ -16,6 +25,11 @@ func _on_MadTalk_activate_custom_effect(custom_id, custom_data):
 			Global.play_track(int(custom_data[0]))
 		"fade_out_music":
 			Global.fade_out_music()
+		"play_sfx":
+			audio_sound_effect.stream = sounds[custom_data[0]]
+			audio_sound_effect.play()
+		"play_ambience":
+			audio_ambience.play()
 
 func _on_MadTalk_voice_clip_requested(speaker_id, clip_path):
 	audio_voice_clip.stream = load(clip_path)

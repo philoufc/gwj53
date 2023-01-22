@@ -24,7 +24,7 @@ tracks/0/keys = {
 "args": [ "3D art & script", "John Gabriel", "" ],
 "method": "set_credits"
 }, {
-"args": [ "Music & sound effects", "Vela", "" ],
+"args": [ "Music & sound effects", "Vela & John Gabriel", "" ],
 "method": "set_credits"
 }, {
 "args": [ "Featuring the vocal talents of", "Loretta Chang", "as Líadan" ],
@@ -76,11 +76,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
+margin_left = -512.0
 margin_top = -73.0
-margin_right = 400.0
+margin_right = 512.0
 margin_bottom = -43.0
-rect_min_size = Vector2( 800, 0 )
+rect_min_size = Vector2( 1024, 0 )
 custom_colors/font_color = Color( 0.819608, 0.486275, 0.486275, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Music & sound effects"
@@ -91,11 +91,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
+margin_left = -512.0
 margin_top = -43.0
-margin_right = 400.0
+margin_right = 512.0
 margin_bottom = 43.0
-rect_min_size = Vector2( 800, 0 )
+rect_min_size = Vector2( 1024, 0 )
 custom_colors/font_color = Color( 0.964706, 0.776471, 0.658824, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
 custom_fonts/font = ExtResource( 2 )
@@ -103,11 +103,10 @@ text = "Rachel Schumacher"
 align = 1
 
 [node name="Label3" type="Label" parent="Control"]
-margin_left = 112.0
 margin_top = 330.0
-margin_right = 912.0
+margin_right = 1024.0
 margin_bottom = 360.0
-rect_min_size = Vector2( 800, 0 )
+rect_min_size = Vector2( 1024, 0 )
 custom_colors/font_color = Color( 0.819608, 0.486275, 0.486275, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "as Líadan"
