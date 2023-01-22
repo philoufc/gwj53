@@ -42,7 +42,7 @@ position = Vector2( 94, 226 )
 element_number = 1
 
 [node name="Element7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 478, 226 )
+position = Vector2( 411, 222 )
 element_number = 1
 
 [node name="Element8" parent="." instance=ExtResource( 4 )]
@@ -54,7 +54,7 @@ position = Vector2( 610, 160 )
 element_number = 1
 
 [node name="Element10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 543, -57 )
+position = Vector2( 545, 223 )
 element_number = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
