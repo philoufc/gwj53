@@ -53,6 +53,7 @@ func boot_sequence():
 
 func _on_Play_pressed() -> void:
 	_removeFocus()
+	get_tree().change_scene("res://scenes/MainLevelScreen.tscn")
 
 func _on_Levels_pressed() -> void:
 	_removeFocus()

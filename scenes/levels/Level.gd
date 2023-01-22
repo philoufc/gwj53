@@ -1,13 +1,11 @@
 extends Node2D
 
-onready var main_camera :Camera2D = $MainCamera
 onready var tilemap :TileMap = $TileMap
 onready var player :StaticBody2D = $Player
 export var level_number :int
 
 func _ready() -> void:
 	Global.pause_menu_available = true
-#	print(tilemap.get_used_rect().size)
 	player.level = self
 	player.position = return_middle_pos(return_tile(player.position))
 	for element in get_tree().get_nodes_in_group("elements"):

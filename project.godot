@@ -102,7 +102,7 @@ config/name="Ciara and the Witch's Cauldron"
 run/main_scene="res://3d/Splash.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.27451, 0.258824, 0.368627, 1 )
-config/icon="res://icon.png"
+config/icon="res://visual/cauldron.png"
 
 [audio]
 

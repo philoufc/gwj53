@@ -131,7 +131,6 @@ func element_check_around_and_attach():
 func why_cant_we_be_friends(new_element):
 	if self.element_number == 1 and new_element.element_number == 2 or self.element_number == 2 and new_element.element_number == 1:
 		player.not_exploding = false
-		print("boom")
 		self.explode(new_element)
 
 func get_tile_from_pos(position):
