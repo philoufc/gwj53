@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fonts/convo.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/ConvoScene.gd" type="Script" id=2]
@@ -14,6 +14,61 @@
 
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Sleep"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -116,6 +171,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="MadTalkEffects" type="AnimationPlayer" parent="."]
+root_node = NodePath("../FadeBlack")
+anims/RESET = SubResource( 4 )
+anims/Sleep = SubResource( 5 )
+
+[node name="FadeBlack" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 600 )
 size_override_stretch = true
@@ -130,6 +197,7 @@ DialogMessageBox = NodePath("../DialogueBox")
 DialogMessageLabel = NodePath("../DialogueBox/Dialogue")
 DialogSpeakerLabel = NodePath("../DialogueBox/CharName")
 DialogSpeakerAvatar = NodePath("../DialogueBox/Mugshot")
+EffectsAnimationPlayer = NodePath("../MadTalkEffects")
 
 [node name="Audio_VoiceClip" type="AudioStreamPlayer" parent="."]
 bus = "VoiceActing"
