@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/convo.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/ConvoScene.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/convo_box.png" type="Texture" id=6]
 [ext_resource path="res://assets/mugshots/placeholder.png" type="Texture" id=7]
 [ext_resource path="res://madtalk/CharacterData.gd" type="Script" id=8]
+[ext_resource path="res://audio/ambience.ogg" type="AudioStream" id=9]
 
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Viewport")
@@ -101,6 +102,11 @@ DialogSpeakerAvatar = NodePath("../DialogueBox/Mugshot")
 bus = "VoiceActing"
 
 [node name="Audio_SoundEffect" type="AudioStreamPlayer" parent="."]
+bus = "SoundFX"
+
+[node name="Audio_Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
 bus = "SoundFX"
 
 [connection signal="activate_custom_effect" from="MadTalk" to="." method="_on_MadTalk_activate_custom_effect"]
