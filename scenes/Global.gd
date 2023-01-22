@@ -2,14 +2,16 @@ extends Control
 
 const TILE_SIZE = 64
 
-enum MUSIC_TRACKS {CIARAS_DETERMINATION, CIARAS_GIFT, CIARAS_LAMENT, FINDING_THE_CURE, LAID_TO_REST, SUAVE_SENILE}
+enum MUSIC_TRACKS {CAULDRONS_RONDO, CIARAS_DETERMINATION, CIARAS_GIFT, CIARAS_LAMENT, FINDING_THE_CURE, LAID_TO_REST, PROUD_OF_YOU, SUAVE_SENILE}
 
 const MUSIC_STREAMS := {
+	MUSIC_TRACKS.CAULDRONS_RONDO: preload("res://audio/music/cauldrons_rondo.ogg"),
 	MUSIC_TRACKS.CIARAS_DETERMINATION: preload("res://audio/music/ciaras_determination.ogg"),
 	MUSIC_TRACKS.CIARAS_GIFT: preload("res://audio/music/ciaras_gift.ogg"),
 	MUSIC_TRACKS.CIARAS_LAMENT: preload("res://audio/music/ciaras_lament.ogg"),
 	MUSIC_TRACKS.FINDING_THE_CURE: preload("res://audio/music/finding_the_cure.ogg"),
 	MUSIC_TRACKS.LAID_TO_REST: preload("res://audio/music/laid_to_rest.ogg"),
+	MUSIC_TRACKS.PROUD_OF_YOU: preload("res://audio/music/proud_of_you.ogg"),
 	MUSIC_TRACKS.SUAVE_SENILE: preload("res://audio/music/suave_senile.ogg"),
 }
 
@@ -32,6 +34,9 @@ var level_music := {
 	1: MUSIC_TRACKS.SUAVE_SENILE,
 	2: MUSIC_TRACKS.SUAVE_SENILE,
 	3: MUSIC_TRACKS.SUAVE_SENILE,
+	4: MUSIC_TRACKS.CAULDRONS_RONDO,
+	5: MUSIC_TRACKS.CAULDRONS_RONDO,
+	6: MUSIC_TRACKS.CAULDRONS_RONDO,
 	7: MUSIC_TRACKS.CIARAS_DETERMINATION,
 	8: MUSIC_TRACKS.CIARAS_DETERMINATION,
 	9: MUSIC_TRACKS.CIARAS_DETERMINATION,
