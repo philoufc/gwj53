@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_circle.png-501690948e9cb96d1d65dafddf0b5a13.stex"
+path="res://.import/cauldron.png-cf5d18815e8fc1ff80f04c4d39bf622e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual/light_circle.png"
-dest_files=[ "res://.import/light_circle.png-501690948e9cb96d1d65dafddf0b5a13.stex" ]
+source_file="res://visual/cauldron.png"
+dest_files=[ "res://.import/cauldron.png-cf5d18815e8fc1ff80f04c4d39bf622e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

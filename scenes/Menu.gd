@@ -5,22 +5,36 @@ onready var splash_gwj = $SplashGWJ
 onready var splash_subvert = $SplashSubvert
 onready var main_menu = $MainMenu
 onready var play_button = $MainMenu/MarginContainer/VBoxContainer/Play
+onready var levels_buttom =$MainMenu/MarginContainer/VBoxContainer/Levels
 onready var settings_button = $MainMenu/MarginContainer/VBoxContainer/Settings
 onready var credits_button = $MainMenu/MarginContainer/VBoxContainer/Credits
 onready var exit_button = $MainMenu/MarginContainer/VBoxContainer/Exit
 onready var startup = $Startup
 onready var background_tilemap = $ViewportContainer/Viewport/TileMapMenu
+onready var menu_cauldron = $MainMenu/TextureRect/Cauldron2/AnimatedSprite
+onready var timer = $MainMenu/TextureRect/Timer
+
 
 func _ready():
+	print("scores:")
+	print(Global.keeping_scores)
 	background_tilemap.hide()
 	splash_godot.hide()
 	splash_gwj.hide()
 	splash_subvert.hide()
 	main_menu.hide()
 	if OS.has_feature("HTML5"):
-		exit_button.hide()
-	yield(get_tree(), "idle_frame")
-	boot_sequence()
+		exit_button.disabled = true
+		
+	if Global.just_one_level:
+		Global.just_one_level = false
+		Global.levels.update_scores()
+		background_tilemap.show()
+		main_menu.show()
+		Global.levels.show()
+	else:
+		yield(get_tree(), "idle_frame")
+		boot_sequence()
 
 func boot_sequence():
 #	startup.play("Splash01godot")
@@ -29,30 +43,28 @@ func boot_sequence():
 #	yield(startup, "animation_finished")
 #	startup.play("Splash02subver")
 #	yield(startup, "animation_finished")
-	
 #	yield(get_tree().create_timer(4.0), "timeout")
 
-# TODO send me your splashes!
-# or do we want to make a custom one for this team?
-# do we have a team name?
-
-	Global.FadeIn()
-	yield(Global.FadeIn(), "completed")
+#	Global.FadeIn()
+#	yield(Global.FadeIn(), "completed")
 	background_tilemap.show()
 	main_menu.show()
+	
 
 func _on_Play_pressed() -> void:
 	_removeFocus()
-	print("let's go!")
-#	$SM_Boot.set_trigger("playbutton")
+
+func _on_Levels_pressed() -> void:
+	_removeFocus()
+	Global.levels.show()
 
 func _on_Settings_pressed() -> void:
 	_removeFocus()
-	Global.settings.visible = true
+	Global.settings.show()
 
 func _on_Credits_pressed() -> void:
 	_removeFocus()
-	Global.credits.visible = true
+	Global.credits.show()
 
 func _on_Exit_pressed() -> void:
 	_removeFocus()
@@ -61,6 +73,7 @@ func _on_Exit_pressed() -> void:
 
 func _removeFocus():
 	play_button.release_focus()
+	levels_buttom.release_focus()
 	settings_button.release_focus()
 	credits_button.release_focus()
 	exit_button.release_focus()
@@ -75,6 +88,9 @@ func _unhandled_input(event):
 func _on_Play_mouse_entered() -> void:
 	_removeFocus()
 	
+func _on_Levels_mouse_entered() -> void:
+	_removeFocus()
+	
 func _on_Settings_mouse_entered() -> void:
 	_removeFocus()
 
@@ -84,30 +100,6 @@ func _on_Credits_mouse_entered() -> void:
 func _on_Exit_mouse_entered() -> void:
 	_removeFocus()
 
-#func _on_SM_Boot_transited(_from, to):
-#	match to:
-#		"Entry":
-#			print("entry")
-#		"splashScreen":
-#			$Startup.play("Splash01godot")
-#			yield(get_tree().create_timer(2.8), "timeout")
-#			$Startup.play("Splash02subver")
-#			yield(get_tree().create_timer(4.0), "timeout")
-#			$SM_Boot.set_trigger("splashed")
-#		"Menu":
-#			Global.menu_music.volume_db = -6
-#			Global.menu_music.playing = true
-#			Global.is_menu = true
-#			$MainMenu.visible = false
-#			Global.FadeIn()
-#			yield(get_tree().create_timer(0.5), "timeout")
-#			$MainMenu.visible = true
-#		"Play":
-#			prints("menu SM reached Play state")
-#			Global.FadeOut()
-#			yield(get_tree().create_timer(2.0), "timeout")
-#			self.queue_free()
-#
 func SubvertSplashSubs():
 	var subs = Global.subtitles_box.instance()
 	splash_subvert.add_child(subs)
@@ -123,3 +115,16 @@ func SubvertSplashSubs():
 	yield(get_tree().create_timer(1.5), "timeout")
 	subs.visible = false
 
+
+
+
+
+
+
+#func _on_Timer_timeout() -> void:
+#	menu_cauldron.play("smoked")
+#	var random_timer = clamp(randf() * 8, 2.1, 8)
+#	print(random_timer)
+#	timer.wait_time = random_timer
+#	timer.start()
+#	menu_cauldron.frame = 0 

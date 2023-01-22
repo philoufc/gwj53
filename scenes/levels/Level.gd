@@ -6,6 +6,7 @@ onready var player :StaticBody2D = $Player
 export var level_number :int
 
 func _ready() -> void:
+	Global.pause_menu_available = true
 #	print(tilemap.get_used_rect().size)
 	player.level = self
 	player.position = return_middle_pos(return_tile(player.position))

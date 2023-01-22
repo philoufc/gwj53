@@ -8,7 +8,8 @@ var free_spaces = {
 	"right": 0,
 	"left": 0
 	}
-var is_moving = false
+var can_move = true
+var not_exploding = true
 var elements_carried = []
 var elements_offsets = {}
 
@@ -46,7 +47,31 @@ var solutions :Dictionary = {
 		1: [Vector2(0, 1)],
 		2: [Vector2(0, -1)]
 	},
-	"test": {
+	5: {
+		1: [Vector2(-3, 0)],
+		2: [Vector2(-1, 0)],
+		3: [Vector2(-2, 0)],
+	},
+	6: {
+		1: [Vector2(1, 0)],
+		2: [Vector2(-1, 0)],
+		3: [Vector2(2, 0)]
+	},
+	7: {
+		
+	},
+	8: {
+		3: [
+			Vector2(-1, 0),
+			Vector2(1, 0),
+			Vector2(0, -1),
+			Vector2(0, 1)]
+	},
+	9: {
+		3: [Vector2(0, -1)],
+		2: [Vector2(1, -1)]
+	},
+	10: {
 		1: [Vector2(1, 0)],
 		2: [Vector2(0, 1)]
 	}
@@ -61,22 +86,33 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		update_free_spaces()
-		if not is_moving:
+		if can_move and not_exploding:
+			update_free_spaces()
+			can_move = false
 			if event.is_action_pressed("up"):
 				if free_spaces["up"] > 0:
 					move("up")
+				else:
+					can_move = true
 			elif event.is_action_pressed("down"):
 				if free_spaces["down"] > 0:
 					move("down")
+				else:
+					can_move = true
 			elif event.is_action_pressed("right"):
 				if free_spaces["right"] > 0:
 					move("right")
+				else:
+					can_move = true
 				sprite.flip_h = false
 			elif event.is_action_pressed("left"):
 				if free_spaces["left"] > 0:
 					move("left")
+				else:
+					can_move = true
 				sprite.flip_h = true
+			else:
+				can_move = true
 
 func update_free_spaces():
 	raycast_up.cast_to = Vector2(0, -2000)
@@ -94,7 +130,6 @@ func update_free_spaces():
 		free_spaces["left"] = int(abs(raycast_left.get_collision_point().x - self.position.x) / Global.TILE_SIZE)
 	
 func move(direction):
-	is_moving = true
 	var tile_movement = Vector2.ZERO
 	var number_of_tiles = 0
 	match direction:
@@ -106,7 +141,7 @@ func move(direction):
 			tile_movement = Vector2.RIGHT
 		"left":
 			tile_movement = Vector2.LEFT
-	yield(get_tree().create_timer(0.1), "timeout")
+#	yield(get_tree().create_timer(0.1), "timeout")
 	number_of_tiles = free_spaces[direction]
 	for element in elements_carried:
 		if element.get_free_spaces(direction) < number_of_tiles:
@@ -118,21 +153,23 @@ func move(direction):
 			"position", 
 			self.position, 
 			self.position + (tile_movement * number_of_tiles * Global.TILE_SIZE), 
-			clamp(0.1 * number_of_tiles, 0.42, 0.84),
+			clamp(0.15 * number_of_tiles, 0.42, 0.84),
 			Tween.TRANS_BACK, 
 			Tween.EASE_IN)
 		tween.start()
 		yield(tween, "tween_completed")
-		is_moving = false
 		yield(get_tree().create_timer(0.1), "timeout")
 		check_around_and_attach()
 		for element in elements_carried:
 			element.element_check_around_and_attach()
 		Global.number_of_moves += 1
 		Global.update_ui()
-		check_if_level_complete(Global.game_difficulty)
+		can_move = true
+		if level.tile_is_exit(get_tile_from_pos(position)):
+			check_if_level_complete(Global.game_difficulty)
+		
 	else:
-		is_moving = false
+		can_move = true
 
 func check_around_and_attach():
 	if area_up.get_overlapping_bodies():
@@ -191,53 +228,53 @@ func check_around_and_attach():
 
 
 func check_if_level_complete(difficulty):
-	if level.tile_is_exit(get_tile_from_pos(position)):
-		var final_positions = []
-		flatten_array(elements_offsets.values(), final_positions)
-		final_positions.sort()
-		var solution_positions = []
-		flatten_array(solutions[current_level].values(), solution_positions)
-		solution_positions.sort()
-		if len(final_positions) == len(solution_positions):
-			var found_discrepancy = false
-			match difficulty:
-				"hard":
+	can_move = false
+	var final_positions = []
+	flatten_array(elements_offsets.values(), final_positions)
+	final_positions.sort()
+	var solution_positions = []
+	flatten_array(solutions[current_level].values(), solution_positions)
+	solution_positions.sort()
+	if len(final_positions) == len(solution_positions):
+		var found_discrepancy = false
+		match difficulty:
+			"hard":
 #					print("our shape:", elements_offsets)
 #					print("solution:", solutions[current_level])
-					for element in solutions[current_level]:
-						if solutions[current_level][element] != elements_offsets[element]:
-							found_discrepancy = true
-							break
-				"normal":
+				for element in solutions[current_level]:
+					if solutions[current_level][element] != elements_offsets[element]:
+						found_discrepancy = true
+						break
+			"normal":
 #					print(final_positions)
 #					print(solution_positions)
-					if final_positions != solution_positions:
-						found_discrepancy = true
-							
-			if !found_discrepancy:
-#				$LevelEnd.text = "win!"
-#				$LevelEnd.show()
-#				yield(get_tree().create_timer(2), "timeout")
-#				$LevelEnd.hide()
-				Global.keeping_scores[current_level] = Global.number_of_moves
-				print(Global.keeping_scores)
-				cauldron_assembly()
-				yield(cauldron_assembly(), "completed")
-				Global.fade_sweep()
-				yield(get_tree().create_timer(0.8), "timeout")
-				Global.ui_moves.hide()
-				main_screen_level.next_level(current_level)
-				level.queue_free()
-			else:
-				$LevelEnd.text = "nope!"
-				$LevelEnd.show()
-				yield(get_tree().create_timer(1), "timeout")
-				$LevelEnd.hide()
-		else:
-			$LevelEnd.text = "nope!"
+				if final_positions != solution_positions:
+					found_discrepancy = true
+						
+		if !found_discrepancy:
+			$LevelEnd.text = "win!"
 			$LevelEnd.show()
-			yield(get_tree().create_timer(1), "timeout")
+#			yield(get_tree().create_timer(2), "timeout")
 			$LevelEnd.hide()
+			if current_level in Global.keeping_scores:
+				Global.keeping_scores[current_level] = min(Global.keeping_scores[current_level], Global.number_of_moves)
+			else:
+				Global.keeping_scores[current_level] = Global.number_of_moves
+			print(Global.keeping_scores)
+			cauldron_assembly()
+#			yield(cauldron_assembly(), "completed")
+			yield(cauldron.animated_sprite, "animation_finished")
+			Global.fade_sweep()
+			yield(get_tree().create_timer(0.8), "timeout")
+			Global.ui_moves.hide()
+			main_screen_level.next_level(Global.current_level)
+			level.queue_free()
+		else:
+			Global.show_restart_message()
+			can_move = true
+	else:
+		Global.show_restart_message()
+		can_move = true
 
 func cauldron_assembly():
 	cauldron.scale = Vector2(0.1, 0.1)
@@ -266,6 +303,8 @@ func cauldron_assembly():
 		yield(new_tween_2, "tween_completed")
 		element.hide()
 		remove_child(new_tween_2)
+	cauldron.smoking_is_bad()
+	
 	#bubulblblublbulublub
 
 func flatten_array(array, flattened):

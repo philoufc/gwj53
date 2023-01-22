@@ -8,8 +8,8 @@ func _input(event):
 				if event is InputEventKey:
 					Global.remap_key = event
 					Global.remap_pressed = OS.get_scancode_string(event.scancode).to_lower()
-					prints("remap_key",Global.remap_key)
-					prints("scancode", event.scancode)
+#					prints("remap_key",Global.remap_key)
+#					prints("scancode", event.scancode)
 					$MarginContainer/VBoxContainer/LineEdit.text = Global.remap_pressed
 		if event.is_action_released("ui_cancel"):
 			self.hide()
@@ -45,6 +45,8 @@ func _on_confirm_pressed():
 			Global.custom_right_key = Global.remap_pressed
 		"sprint":
 			Global.custom_sprint_key = Global.remap_pressed
+		"level_reset":
+			Global.custom_restart_key = Global.remap_pressed
 	self.get_parent().UpdateLabels()
 	self.hide()
 	$MarginContainer/VBoxContainer/LineEdit.text = ""

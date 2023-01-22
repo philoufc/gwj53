@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://visual/godot_icon_2.png" type="Texture" id=1]
-[ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Cauldron.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/fragmentmono.tres" type="DynamicFont" id=3]
 [ext_resource path="res://visual/subvertissement_logo_mod.png" type="Texture" id=4]
-[ext_resource path="res://scripts/Menu.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Menu.gd" type="Script" id=5]
 [ext_resource path="res://visual/gwj_logo_mod.png" type="Texture" id=6]
 [ext_resource path="res://scenes/TileMapMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=8]
 [ext_resource path="res://visual/logo.png" type="Texture" id=9]
-[ext_resource path="res://visual/cauldrons.png" type="Texture" id=10]
 [ext_resource path="res://audio/subvertissement_splash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=10]
@@ -210,6 +209,7 @@ tracks/2/keys = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -71.0 ],
@@ -225,21 +225,18 @@ size = Vector2( 1024, 600 )
 own_world = true
 transparent_bg = true
 handle_input_locally = false
+disable_3d = true
 usage = 0
-render_target_clear_mode = 1
 render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="TileMapMenu" parent="ViewportContainer/Viewport" instance=ExtResource( 7 )]
 
-[node name="Coldfire-gb-32x" type="Sprite" parent="."]
-position = Vector2( 512, -65 )
-scale = Vector2( 7.85938, 2.15625 )
-texture = ExtResource( 2 )
-
 [node name="SplashSubvert" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="SplashBG" type="ColorRect" parent="SplashSubvert"]
 anchor_right = 1.0
@@ -271,6 +268,7 @@ bus = "SoundFX"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="SplashBG" type="ColorRect" parent="SplashGodot"]
 anchor_right = 1.0
@@ -318,6 +316,7 @@ fit_content_height = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="SplashBG" type="ColorRect" parent="SplashGWJ"]
 anchor_right = 1.0
@@ -368,96 +367,86 @@ anims/SplashGWJ = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -592.0
-margin_top = -252.0
-margin_right = 99.0
-margin_bottom = 303.0
-rect_rotation = -2.0
-color = Color( 0.356863, 0.462745, 0.552941, 1 )
-
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
-anchor_left = 0.736328
-anchor_right = 0.996094
-anchor_bottom = 1.0
-rect_min_size = Vector2( 0, 600 )
-custom_constants/margin_right = 42
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 400, 600 )
+custom_constants/margin_right = 92
 custom_constants/margin_top = 42
-custom_constants/margin_left = 0
+custom_constants/margin_left = 76
 custom_constants/margin_bottom = 42
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
-margin_top = 85.0
-margin_right = 224.0
-margin_bottom = 514.0
+margin_left = 76.0
+margin_top = 204.0
+margin_right = 308.0
+margin_bottom = 558.0
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 8
 custom_constants/separation = 21
 
 [node name="Spacer" type="Control" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_right = 224.0
+margin_right = 232.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 0, 54 )
 
 [node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 margin_top = 75.0
-margin_right = 224.0
+margin_right = 232.0
 margin_bottom = 129.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
-text = "Play with Potions"
+text = "Story Mode"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Levels" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 232.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 54 )
+theme = ExtResource( 8 )
+text = "Levels"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Settings" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 150.0
-margin_right = 224.0
-margin_bottom = 204.0
+margin_top = 225.0
+margin_right = 232.0
+margin_bottom = 279.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
-text = "Ciara's Cauldron"
+text = "Settings"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Credits" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 225.0
-margin_right = 224.0
-margin_bottom = 279.0
+visible = false
+margin_top = 300.0
+margin_right = 227.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
-text = "Galar's Brew"
+text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Exit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 margin_top = 300.0
-margin_right = 224.0
+margin_right = 232.0
 margin_bottom = 354.0
 rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 8 )
-text = "The Witch's Tower"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Exit2" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_top = 375.0
-margin_right = 224.0
-margin_bottom = 429.0
-rect_min_size = Vector2( 0, 54 )
-theme = ExtResource( 8 )
-text = "Líadan's Broomba"
+text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -472,19 +461,22 @@ texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 
-[node name="Cauldrons" type="Sprite" parent="MainMenu/TextureRect"]
-light_mask = 0
-position = Vector2( 320, 458 )
-scale = Vector2( 3.60938, 3.60938 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 0, 128, 64, 64 )
+[node name="Cauldron2" parent="MainMenu/TextureRect" instance=ExtResource( 2 )]
+show_behind_parent = true
+position = Vector2( 325, 464 )
+scale = Vector2( 4, 4 )
+
+[node name="Timer" type="Timer" parent="MainMenu/TextureRect"]
+wait_time = 5.0
 
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Levels" to="." method="_on_Levels_mouse_entered"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_Credits_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="timeout" from="MainMenu/TextureRect/Timer" to="." method="_on_Timer_timeout"]

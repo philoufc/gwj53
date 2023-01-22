@@ -18,17 +18,29 @@ onready var position_up :Position2D = $ElementsPositions/Position2D_up
 onready var position_down :Position2D = $ElementsPositions/Position2D_down
 onready var position_right :Position2D = $ElementsPositions/Position2D_right
 onready var position_left :Position2D = $ElementsPositions/Position2D_left
-
+onready var tween = $Tween
+onready var tween2 = $Tween2
+onready var exploding = $Exploding
+onready var exploding2 = $Exploding2
+onready var animation_player = $AnimationPlayer
+var explode_flame = load("res://visual/flame.png")
+var explode_ice = load("res://visual/ice.png")
+var explode_light = load("res://visual/light.png")
 
 func _ready() -> void:
+	exploding.hide()
+	exploding2.hide()
 	yield(get_tree(), "idle_frame")
 	match element_number:
 		1:
 			sprite.set_animation("flame")
+			exploding.texture = explode_flame
 		2:
 			sprite.set_animation("glace")
+			exploding.texture = explode_ice
 		3:
 			sprite.set_animation("light")
+			exploding.texture = explode_light
 
 func update_free_spaces():
 	raycast_up.cast_to = Vector2(0, -2000)
@@ -115,12 +127,42 @@ func element_check_around_and_attach():
 			yield(get_tree().create_timer(0.1), "timeout")
 			new_element.element_check_around_and_attach() # comment out to connect only one element at a time
 
+
 func why_cant_we_be_friends(new_element):
 	if self.element_number == 1 and new_element.element_number == 2 or self.element_number == 2 and new_element.element_number == 1:
+		player.not_exploding = false
 		print("boom")
+		self.explode(new_element)
 
 func get_tile_from_pos(position):
 	return level.return_tile(position)
 
 func get_pos_from_tile(tile):
 	return level.return_middle_pos(tile)
+
+
+func explode(with):
+	match with.element_number:
+		1:
+			exploding2.texture = explode_flame
+		2:
+			exploding2.texture = explode_ice
+		3:
+			exploding2.texture = explode_light
+	tween.interpolate_property(self, "scale", Vector2(1, 1), Vector2(3, 3), 1.5, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+	tween.interpolate_property(self, "global_position", self.global_position, Vector2(get_viewport_rect().size.x * 0.5 - 64, get_viewport_rect().size.y * 0.74), 2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	tween.start()
+	tween2.interpolate_property(with, "scale", Vector2(1, 1), Vector2(3, 3), 1.5, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+	tween2.interpolate_property(with, "global_position", with.global_position, Vector2(get_viewport_rect().size.x * 0.5 + 64, get_viewport_rect().size.y * 0.74), 2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	tween2.start()
+	yield(tween, "tween_completed")
+	yield(tween2, "tween_completed")
+	exploding.global_position = self.global_position
+	exploding2.global_position = with.global_position
+	exploding.show()
+	exploding2.show()
+	sprite.hide()
+	with.hide()
+	animation_player.play("Explosion")
+	yield(animation_player, "animation_finished")
+	level.get_parent().level_restart()

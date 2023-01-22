@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/levels/LevelTilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://scenes/levels/Level.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Element.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node2D"]

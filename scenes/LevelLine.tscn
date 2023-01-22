@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/LevelLine.gd" type="Script" id=2]
+[ext_resource path="res://fonts/ltfunk_24_shadow.tres" type="DynamicFont" id=3]
+
+[node name="LevelLine" type="HBoxContainer"]
+margin_top = 35.0
+margin_right = 854.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 84 )
+size_flags_vertical = 0
+script = ExtResource( 2 )
+
+[node name="ColumnRecipe" type="VBoxContainer" parent="."]
+margin_right = 480.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 480, 0 )
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ColumnRecipe"]
+margin_right = 480.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="ColumnRecipe/MarginContainer"]
+margin_left = 8.0
+margin_top = 27.0
+margin_right = 480.0
+margin_bottom = 56.0
+size_flags_vertical = 6
+theme = ExtResource( 1 )
+autowrap = true
+
+[node name="ColumnPlay" type="VBoxContainer" parent="."]
+margin_left = 487.0
+margin_right = 667.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 180, 0 )
+size_flags_horizontal = 10
+
+[node name="Button" type="Button" parent="ColumnPlay"]
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 160.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 140, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource( 1 )
+text = "Level X"
+
+[node name="ColumnBestScore" type="VBoxContainer" parent="."]
+margin_left = 694.0
+margin_right = 854.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="ColumnBestScore" groups=["scores"]]
+margin_top = 21.0
+margin_right = 160.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_vertical = 6
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "15"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="ColumnPlay/Button" to="." method="_on_Button_pressed"]

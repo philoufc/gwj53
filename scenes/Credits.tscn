@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://scripts/Credits.gd" type="Script" id=7]
+[ext_resource path="res://scenes/Credits.gd" type="Script" id=7]
 
 [sub_resource type="InputEventKey" id=31]
 scancode = 16777217
@@ -49,63 +49,61 @@ custom_constants/margin_bottom = 21
 margin_left = 32.0
 margin_top = 16.0
 margin_right = 748.0
-margin_bottom = 539.0
+margin_bottom = 459.0
 custom_constants/separation = 16
 
-[node name="title" type="VBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer"]
+[node name="Title" type="VBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer"]
 margin_right = 716.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 640, 0 )
-size_flags_horizontal = 7
-custom_constants/separation = -13
+margin_bottom = 26.0
+custom_constants/separation = -6
 
-[node name="credz" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer/title"]
+[node name="Credits" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer/Title"]
 margin_right = 716.0
-margin_bottom = 30.0
+margin_bottom = 29.0
 theme = ExtResource( 1 )
-text = "gratitude"
+text = "Credits"
 align = 1
 
-[node name="ColorRect" type="ColorRect" parent="CreditsPanel/MarginContainer/VBoxContainer/title"]
+[node name="ColorRect" type="ColorRect" parent="CreditsPanel/MarginContainer/VBoxContainer/Title"]
 show_behind_parent = true
-margin_top = 17.0
+margin_top = 23.0
 margin_right = 716.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 640, 3 )
+margin_bottom = 26.0
+rect_min_size = Vector2( 700, 3 )
 size_flags_horizontal = 5
-color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+color = Color( 0.356863, 0.462745, 0.552941, 1 )
 
 [node name="Label" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer"]
-margin_top = 36.0
+margin_top = 42.0
 margin_right = 716.0
-margin_bottom = 99.0
+margin_bottom = 103.0
 text = "> this game was created in four days during the 47th godot wild jam."
 align = 3
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer"]
 margin_left = 44.0
-margin_top = 115.0
+margin_top = 119.0
 margin_right = 672.0
-margin_bottom = 269.0
+margin_bottom = 272.0
 rect_min_size = Vector2( 480, 0 )
 size_flags_horizontal = 4
 custom_constants/separation = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 340.0
-margin_bottom = 154.0
+margin_bottom = 153.0
 
 [node name="Label" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 340.0
-margin_bottom = 30.0
+margin_bottom = 29.0
 size_flags_horizontal = 7
 text = "> gwj47 theme:"
 
 [node name="theme" type="TextureRect" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 42.0
+margin_top = 41.0
 margin_right = 340.0
-margin_bottom = 142.0
+margin_bottom = 141.0
 rect_min_size = Vector2( 340, 100 )
 size_flags_horizontal = 7
 size_flags_vertical = 6
@@ -114,9 +112,9 @@ stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_left = 170.0
-margin_top = 154.0
+margin_top = 153.0
 margin_right = 170.0
-margin_bottom = 154.0
+margin_bottom = 153.0
 size_flags_horizontal = 4
 
 [node name="arrow_up" type="TextureRect" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
@@ -125,18 +123,18 @@ size_flags_horizontal = 6
 [node name="VBoxContainer2" type="VBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 404.0
 margin_right = 628.0
-margin_bottom = 154.0
+margin_bottom = 153.0
 
 [node name="Label" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 224.0
-margin_bottom = 30.0
+margin_bottom = 29.0
 size_flags_horizontal = 7
 text = "> wildcards:"
 
 [node name="wildcards" type="TextureRect" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 34.0
+margin_top = 33.0
 margin_right = 224.0
-margin_bottom = 134.0
+margin_bottom = 133.0
 rect_min_size = Vector2( 224, 100 )
 size_flags_horizontal = 7
 size_flags_vertical = 6
@@ -144,9 +142,9 @@ expand = true
 stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CreditsPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 138.0
+margin_top = 137.0
 margin_right = 224.0
-margin_bottom = 154.0
+margin_bottom = 153.0
 rect_min_size = Vector2( 224, 16 )
 size_flags_horizontal = 3
 
@@ -168,36 +166,11 @@ margin_right = 188.0
 margin_bottom = 16.0
 size_flags_horizontal = 6
 
-[node name="Label3" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer"]
-margin_top = 285.0
-margin_right = 716.0
-margin_bottom = 381.0
-text = "> free & open source tools used: 
-           godot engine, milkytracker, libresprite, inkscape, audacity"
-align = 3
-autowrap = true
-
-[node name="Label4" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer"]
-margin_top = 397.0
-margin_right = 716.0
-margin_bottom = 427.0
-text = "> music + \"unusual looking\" art made by me."
-align = 3
-autowrap = true
-
-[node name="Label5" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer"]
-margin_top = 443.0
-margin_right = 716.0
-margin_bottom = 473.0
-text = "> other assets + shaders under cc0 or mit license."
-align = 3
-autowrap = true
-
 [node name="return" type="Button" parent="CreditsPanel/MarginContainer/VBoxContainer"]
 margin_left = 566.0
-margin_top = 489.0
+margin_top = 409.0
 margin_right = 716.0
-margin_bottom = 523.0
+margin_bottom = 443.0
 rect_min_size = Vector2( 150, 32 )
 size_flags_horizontal = 8
 size_flags_vertical = 10

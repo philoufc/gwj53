@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=12 format=2]
+[gd_resource type="Theme" load_steps=18 format=2]
 
-[ext_resource path="res://fonts/ltfunk_24_shadow.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/fragmentmono.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/ltfunk_42_shadow.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/ltfunk_24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://themes/defaultbuttonbg.tres" type="StyleBox" id=4]
@@ -9,27 +9,86 @@
 [ext_resource path="res://themes/defaultbutton hover.tres" type="StyleBox" id=7]
 [ext_resource path="res://themes/defaultbutton press.tres" type="StyleBox" id=8]
 [ext_resource path="res://themes/defaultslidergrabberactive.tres" type="StyleBox" id=9]
+[ext_resource path="res://themes/panel_styleboxflat.tres" type="StyleBox" id=10]
 
 [sub_resource type="StyleBoxEmpty" id=37]
 
-[sub_resource type="StyleBoxFlat" id=36]
+[sub_resource type="StyleBoxFlat" id=38]
 bg_color = Color( 0.27451, 0.258824, 0.368627, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.356863, 0.462745, 0.552941, 1 )
+border_color = Color( 0.819608, 0.486275, 0.486275, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id=39]
+bg_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.964706, 0.776471, 0.658824, 1 )
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 corner_detail = 1
 
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 0.356863, 0.462745, 0.552941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=44]
+bg_color = Color( 0.819608, 0.486275, 0.486275, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 0.964706, 0.776471, 0.658824, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.964706, 0.776471, 0.658824, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 default_font = ExtResource( 3 )
 Button/colors/font_color = Color( 0.27451, 0.258824, 0.368627, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_focus = Color( 0.356863, 0.462745, 0.552941, 1 )
+Button/colors/font_color_focus = Color( 0.819608, 0.486275, 0.486275, 1 )
 Button/colors/font_color_hover = Color( 0.964706, 0.776471, 0.658824, 1 )
 Button/colors/font_color_pressed = Color( 0.964706, 0.776471, 0.658824, 1 )
 Button/fonts/font = ExtResource( 3 )
@@ -38,6 +97,8 @@ Button/styles/focus = SubResource( 37 )
 Button/styles/hover = ExtResource( 7 )
 Button/styles/normal = ExtResource( 4 )
 Button/styles/pressed = ExtResource( 8 )
+CheckBox/styles/focus = SubResource( 38 )
+CheckBox/styles/normal = null
 HSlider/icons/grabber = null
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = null
@@ -59,9 +120,17 @@ LabelDay/constants/shadow_as_outline = 0
 LabelDay/constants/shadow_offset_x = 2
 LabelDay/constants/shadow_offset_y = 0
 LabelDay/fonts/font = ExtResource( 2 )
-Panel/styles/panel = SubResource( 36 )
+OptionButton/constants/arrow_margin = 0
+Panel/styles/panel = ExtResource( 10 )
+PopupDialog/styles/panel = SubResource( 39 )
 RichTextLabel/fonts/bold_font = ExtResource( 3 )
 RichTextLabel/fonts/bold_italics_font = ExtResource( 3 )
 RichTextLabel/fonts/italics_font = ExtResource( 3 )
 RichTextLabel/fonts/mono_font = ExtResource( 3 )
 RichTextLabel/fonts/normal_font = ExtResource( 3 )
+ScrollContainer/styles/bg = SubResource( 40 )
+VScrollBar/styles/grabber = SubResource( 44 )
+VScrollBar/styles/grabber_highlight = SubResource( 41 )
+VScrollBar/styles/grabber_pressed = SubResource( 45 )
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://coldfire-gb-32x.png" type="Texture" id=1]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://fonts/ltfunk_24_shadow.tres" type="DynamicFont" id=3]
 [ext_resource path="res://themes/defaultbuttonbg.tres" type="StyleBox" id=4]
-[ext_resource path="res://scripts/Settings.gd" type="Script" id=7]
-[ext_resource path="res://scripts/PopupDialog.gd" type="Script" id=8]
+[ext_resource path="res://scenes/Settings.gd" type="Script" id=7]
+[ext_resource path="res://scenes/PopupDialog.gd" type="Script" id=8]
 
 [sub_resource type="InputEventKey" id=10]
 scancode = 16777217
@@ -11,7 +13,23 @@ scancode = 16777217
 [sub_resource type="ShortCut" id=9]
 shortcut = SubResource( 10 )
 
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.27451, 0.258824, 0.368627, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.819608, 0.486275, 0.486275, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 1
+
 [sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.356863, 0.462745, 0.552941, 1 )
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -27,19 +45,20 @@ color = Color( 0, 0, 0, 0.666667 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 64
-custom_constants/margin_top = 64
-custom_constants/margin_left = 64
-custom_constants/margin_bottom = 64
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
-margin_left = 64.0
-margin_top = 64.0
-margin_right = 960.0
-margin_bottom = 536.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 900, 480 )
 theme = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
@@ -56,124 +75,117 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
 margin_left = 32.0
 margin_top = 24.0
-margin_right = 864.0
-margin_bottom = 448.0
+margin_right = 928.0
+margin_bottom = 512.0
 custom_constants/separation = 24
 
-[node name="title" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
-margin_right = 832.0
-margin_bottom = 20.0
-custom_constants/separation = -13
+[node name="Title" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+margin_right = 896.0
+margin_bottom = 26.0
+custom_constants/separation = -6
 
-[node name="settings" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/title"]
-margin_right = 832.0
-margin_bottom = 30.0
-text = "settings"
+[node name="Settings" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Title"]
+margin_right = 896.0
+margin_bottom = 29.0
+theme = ExtResource( 2 )
+text = "Settings"
 align = 1
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/title"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Title"]
 show_behind_parent = true
-margin_top = 17.0
-margin_right = 832.0
-margin_bottom = 20.0
+margin_top = 23.0
+margin_right = 896.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 700, 3 )
 size_flags_horizontal = 5
-color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
-
-[node name="explained" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 832.0
-margin_bottom = 74.0
-text = "(use your mouse or press tab to navigate the options.)"
-align = 1
-valign = 2
+color = Color( 0.356863, 0.462745, 0.552941, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
-margin_top = 98.0
-margin_right = 832.0
-margin_bottom = 338.0
+margin_top = 50.0
+margin_right = 896.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 0, 360 )
+size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 64
+custom_constants/separation = 32
 
-[node name="controls_side" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 12.0
-margin_right = 372.0
-margin_bottom = 240.0
+[node name="ControlsSide" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 432.0
+margin_bottom = 360.0
 rect_min_size = Vector2( 360, 0 )
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 8
 
-[node name="controls" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side"]
-margin_right = 360.0
+[node name="Controls" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide"]
+margin_right = 432.0
 margin_bottom = 30.0
-text = "controls"
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Controls"
 align = 1
 valign = 2
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side"]
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide"]
 margin_top = 38.0
-margin_right = 360.0
-margin_bottom = 240.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7"]
-margin_right = 178.0
-margin_bottom = 202.0
+margin_right = 432.0
+margin_bottom = 256.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer"]
-margin_top = 31.0
-margin_right = 178.0
-margin_bottom = 171.0
-rect_min_size = Vector2( 150, 140 )
-size_flags_vertical = 6
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
+custom_constants/margin_right = 24
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer/Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -76.0
-margin_top = -60.5
-margin_right = 76.0
-margin_bottom = 60.5
-size_flags_vertical = 5
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
-custom_constants/margin_bottom = 4
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 408.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer/Panel/MarginContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 148.0
-margin_bottom = 133.0
-text = "click on
-each control to assign a custom key"
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7"]
+margin_top = 38.0
+margin_right = 142.0
+margin_bottom = 163.0
+rect_min_size = Vector2( 142, 0 )
+size_flags_horizontal = 0
+text = "Each control can be remapped."
 align = 1
 autowrap = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7"]
-margin_left = 198.0
-margin_right = 360.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7"]
+margin_left = 150.0
+margin_right = 392.0
 margin_bottom = 202.0
-size_flags_horizontal = 10
+rect_min_size = Vector2( 210, 0 )
+size_flags_horizontal = 7
+size_flags_vertical = 4
 custom_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
-margin_left = 40.0
-margin_right = 162.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+margin_left = 120.0
+margin_right = 242.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="up" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer"]
+[node name="Up" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer"]
 margin_top = 2.0
 margin_right = 30.0
-margin_bottom = 32.0
-text = "up"
+margin_bottom = 31.0
+text = "Up"
 
-[node name="up_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer"]
+[node name="UpKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer"]
 margin_left = 46.0
 margin_right = 122.0
 margin_bottom = 34.0
@@ -185,24 +197,24 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "w"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
-margin_left = 31.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+margin_left = 90.0
 margin_top = 42.0
-margin_right = 162.0
+margin_right = 242.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="left" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer2"]
+[node name="Left" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer2"]
 margin_top = 2.0
-margin_right = 39.0
-margin_bottom = 32.0
-text = "left"
+margin_right = 60.0
+margin_bottom = 31.0
+text = "Left"
 
-[node name="left_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer2"]
-margin_left = 55.0
-margin_right = 131.0
+[node name="LeftKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer2"]
+margin_left = 76.0
+margin_right = 152.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 76, 32 )
 focus_neighbour_left = NodePath(".")
@@ -212,24 +224,24 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "a"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
-margin_left = 8.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+margin_left = 90.0
 margin_top = 84.0
-margin_right = 162.0
+margin_right = 242.0
 margin_bottom = 118.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="down" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer3"]
+[node name="Down" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer3"]
 margin_top = 2.0
-margin_right = 62.0
-margin_bottom = 32.0
-text = "down"
+margin_right = 60.0
+margin_bottom = 31.0
+text = "Down"
 
-[node name="down_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer3"]
-margin_left = 78.0
-margin_right = 154.0
+[node name="DownKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer3"]
+margin_left = 76.0
+margin_right = 152.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 76, 32 )
 focus_neighbour_left = NodePath(".")
@@ -239,24 +251,24 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "s"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
-margin_left = 12.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+margin_left = 75.0
 margin_top = 126.0
-margin_right = 162.0
+margin_right = 242.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="right" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer4"]
+[node name="Right" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer4"]
 margin_top = 2.0
-margin_right = 58.0
-margin_bottom = 32.0
-text = "right"
+margin_right = 75.0
+margin_bottom = 31.0
+text = "Right"
 
-[node name="right_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer4"]
-margin_left = 74.0
-margin_right = 150.0
+[node name="RightKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer4"]
+margin_left = 91.0
+margin_right = 167.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 76, 32 )
 focus_neighbour_left = NodePath(".")
@@ -266,7 +278,7 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "d"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
 visible = false
 margin_top = 168.0
 margin_right = 183.0
@@ -275,13 +287,13 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="interact" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer5"]
+[node name="Interact" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer5"]
 margin_top = 2.0
 margin_right = 91.0
 margin_bottom = 32.0
 text = "interact"
 
-[node name="interact_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer5"]
+[node name="InteractKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer5"]
 margin_left = 107.0
 margin_right = 183.0
 margin_bottom = 34.0
@@ -293,7 +305,7 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "e"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
 visible = false
 margin_top = 168.0
 margin_right = 200.0
@@ -302,13 +314,13 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="light" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer6"]
+[node name="Light" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer6"]
 margin_top = 2.0
 margin_right = 108.0
 margin_bottom = 32.0
 text = "flashlight"
 
-[node name="light_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer6"]
+[node name="LightKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer6"]
 margin_left = 124.0
 margin_right = 200.0
 margin_bottom = 34.0
@@ -319,7 +331,8 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "l"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+visible = false
 margin_top = 168.0
 margin_right = 162.0
 margin_bottom = 202.0
@@ -327,13 +340,13 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="sprint" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer7"]
+[node name="Sprint" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer7"]
 margin_top = 2.0
 margin_right = 70.0
 margin_bottom = 32.0
 text = "sprint"
 
-[node name="sprint_key" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer7"]
+[node name="SprintKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer7"]
 margin_left = 86.0
 margin_right = 162.0
 margin_bottom = 34.0
@@ -344,57 +357,143 @@ size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "shift"
 
-[node name="audio_side" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 460.0
-margin_right = 820.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 360, 0 )
-focus_mode = 1
-size_flags_horizontal = 6
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2"]
+margin_left = 45.0
+margin_top = 168.0
+margin_right = 242.0
+margin_bottom = 202.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 10
 custom_constants/separation = 16
 
-[node name="audio" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side"]
-margin_right = 360.0
+[node name="Restart" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer8"]
+margin_top = 2.0
+margin_right = 105.0
+margin_bottom = 31.0
+text = "Restart"
+
+[node name="RestartKey" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer8"]
+margin_left = 121.0
+margin_right = 197.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 76, 32 )
+focus_neighbour_left = NodePath(".")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "r"
+
+[node name="Spacer" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide"]
+margin_top = 264.0
+margin_right = 432.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="DifficultySide" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide"]
+margin_left = 96.0
+margin_top = 288.0
+margin_right = 336.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 240, 0 )
+size_flags_horizontal = 6
+custom_constants/separation = 8
+
+[node name="Difficulty" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/DifficultySide"]
+margin_right = 240.0
 margin_bottom = 30.0
-size_flags_vertical = 0
-text = "audio"
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Difficulty"
 align = 1
 valign = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side"]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/DifficultySide"]
+margin_top = 38.0
+margin_right = 240.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 116, 0 )
+theme = ExtResource( 2 )
+text = "Normal "
+align = 1
+items = [ "Normal ", null, false, 0, null, "Hard ", null, false, 1, null ]
+selected = 0
+
+[node name="AudioSide" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 536.0
+margin_right = 896.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 360, 0 )
+focus_mode = 1
+size_flags_horizontal = 10
+custom_constants/separation = 16
+
+[node name="Audio" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide"]
+margin_right = 360.0
+margin_bottom = 30.0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Audio"
+align = 1
+valign = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide"]
 margin_top = 46.0
 margin_right = 360.0
-margin_bottom = 135.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 24
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer"]
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 344.0
+margin_bottom = 306.0
+
+[node name="MusicVBox" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3"]
+margin_right = 320.0
+margin_bottom = 96.0
 size_flags_vertical = 3
 custom_constants/separation = 4
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer"]
-margin_right = 360.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox"]
+margin_right = 320.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
+custom_constants/separation = 16
 
-[node name="music" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer2"]
+[node name="Music" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer2"]
 margin_top = 2.0
-margin_right = 154.0
-margin_bottom = 32.0
+margin_right = 75.0
+margin_bottom = 31.0
 size_flags_horizontal = 2
-text = "music volume"
+text = "Music"
 
-[node name="music_mute" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer2"]
-margin_left = 265.0
+[node name="MusicMute" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer2"]
+margin_left = 224.0
 margin_top = 2.0
-margin_right = 324.0
-margin_bottom = 32.0
+margin_right = 284.0
+margin_bottom = 31.0
 size_flags_horizontal = 10
-text = "mute"
+text = "Mute"
 
-[node name="CheckBoxMusic" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer2"]
-margin_left = 328.0
-margin_right = 360.0
+[node name="CheckBoxMusic" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer2"]
+margin_left = 300.0
+margin_right = 320.0
 margin_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 32, 0 )
 size_flags_horizontal = 8
 theme = ExtResource( 2 )
 custom_styles/normal = ExtResource( 4 )
@@ -403,141 +502,213 @@ flat = true
 align = 2
 expand_icon = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer"]
-margin_left = 42.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox"]
 margin_top = 38.0
-margin_right = 318.0
+margin_right = 320.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 32 )
-size_flags_horizontal = 6
+size_flags_horizontal = 7
 custom_constants/separation = 16
 
-[node name="music_vol_minus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer"]
-margin_right = 32.0
+[node name="MusicVolMinus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer"]
+margin_right = 54.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
-size_flags_horizontal = 4
+size_flags_horizontal = 7
 size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "-"
 
-[node name="music_vol" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer"]
-margin_left = 48.0
-margin_right = 228.0
+[node name="MusicVol" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer"]
+margin_left = 70.0
+margin_right = 250.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 180, 32 )
+size_flags_horizontal = 7
 theme = ExtResource( 2 )
 min_value = -60.0
 max_value = 0.0
 rounded = true
 scrollable = false
 
-[node name="music_vol_plus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer"]
-margin_left = 244.0
-margin_right = 276.0
+[node name="MusicVolPlus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer"]
+margin_left = 266.0
+margin_right = 320.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
-size_flags_horizontal = 4
+size_flags_horizontal = 7
 size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "+"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side"]
-margin_top = 151.0
-margin_right = 360.0
-margin_bottom = 240.0
+[node name="SFXVBox" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3"]
+margin_top = 100.0
+margin_right = 320.0
+margin_bottom = 197.0
 size_flags_vertical = 3
 custom_constants/separation = 4
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2"]
-margin_right = 360.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox"]
+margin_right = 320.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
+custom_constants/separation = 16
 
-[node name="fx" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer3"]
+[node name="FX" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer3"]
 margin_top = 2.0
-margin_right = 160.0
-margin_bottom = 32.0
+margin_right = 134.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
-text = "sound_fx"
+text = "Sound FX"
 
-[node name="music_mute" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer3"]
-margin_left = 265.0
+[node name="FXMute" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer3"]
+margin_left = 224.0
 margin_top = 2.0
-margin_right = 324.0
-margin_bottom = 32.0
+margin_right = 284.0
+margin_bottom = 31.0
 size_flags_horizontal = 10
-text = "mute"
+text = "Mute"
 
-[node name="CheckBoxFX" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer3"]
-margin_left = 328.0
-margin_right = 360.0
+[node name="CheckBoxFX" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer3"]
+margin_left = 300.0
+margin_right = 320.0
 margin_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 32, 0 )
 size_flags_horizontal = 8
 theme = ExtResource( 2 )
 shortcut_in_tooltip = false
 flat = true
-align = 2
-expand_icon = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2"]
-margin_left = 42.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox"]
 margin_top = 38.0
-margin_right = 318.0
+margin_right = 320.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 0, 32 )
-size_flags_horizontal = 6
+size_flags_horizontal = 7
 custom_constants/separation = 16
 
-[node name="fx_vol_minus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2"]
-margin_right = 32.0
+[node name="FXVolMinus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2"]
+margin_right = 54.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "-"
 
-[node name="fx_vol" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2"]
-margin_left = 48.0
-margin_right = 228.0
+[node name="FXVol" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2"]
+margin_left = 70.0
+margin_right = 250.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 180, 32 )
+size_flags_horizontal = 3
 theme = ExtResource( 2 )
 min_value = -60.0
 max_value = 0.0
 rounded = true
 scrollable = false
 
-[node name="fx_vol_plus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2"]
-margin_left = 244.0
-margin_right = 276.0
+[node name="FXVolPlus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2"]
+margin_left = 266.0
+margin_right = 320.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "+"
+
+[node name="VoiceVBox" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3"]
+margin_top = 201.0
+margin_right = 320.0
+margin_bottom = 298.0
+size_flags_vertical = 3
+custom_constants/separation = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox"]
+margin_right = 320.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="Voice" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer3"]
+margin_top = 2.0
+margin_right = 134.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Voice"
+
+[node name="VoiceMute" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer3"]
+margin_left = 224.0
+margin_top = 2.0
+margin_right = 284.0
+margin_bottom = 31.0
+size_flags_horizontal = 10
+text = "Mute"
+
+[node name="CheckBoxVoice" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer3"]
+margin_left = 300.0
+margin_right = 320.0
+margin_bottom = 34.0
+size_flags_horizontal = 8
+theme = ExtResource( 2 )
+shortcut_in_tooltip = false
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox"]
+margin_top = 38.0
+margin_right = 320.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 7
+custom_constants/separation = 16
+
+[node name="VoiceVolMinus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2"]
+margin_right = 54.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 7
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "-"
+
+[node name="VoiceVol" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2"]
+margin_left = 70.0
+margin_right = 250.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 180, 32 )
+size_flags_horizontal = 7
+theme = ExtResource( 2 )
+min_value = -60.0
+max_value = 0.0
+rounded = true
+scrollable = false
+
+[node name="VoiceVolPlus" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2"]
+margin_left = 266.0
+margin_right = 320.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 7
 size_flags_vertical = 4
 theme = ExtResource( 2 )
 text = "+"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
-margin_top = 390.0
-margin_right = 832.0
-margin_bottom = 424.0
+margin_top = 454.0
+margin_right = 896.0
+margin_bottom = 488.0
 size_flags_vertical = 10
 
-[node name="return" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 682.0
-margin_right = 832.0
+[node name="Return" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 746.0
+margin_right = 896.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 150, 32 )
 size_flags_horizontal = 10
 theme = ExtResource( 2 )
 shortcut_in_tooltip = false
 shortcut = SubResource( 9 )
-text = "return"
+text = "Return"
 
 [node name="PopupDialog" type="PopupDialog" parent="."]
 pause_mode = 2
@@ -545,11 +716,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -100.0
-margin_right = 200.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 400, 200 )
+margin_left = -280.0
+margin_top = -130.0
+margin_right = 280.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 560, 260 )
+theme = ExtResource( 2 )
 popup_exclusive = true
 script = ExtResource( 8 )
 
@@ -563,29 +735,33 @@ custom_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupDialog/MarginContainer"]
 margin_left = 16.0
-margin_top = 20.0
-margin_right = 395.0
-margin_bottom = 180.0
+margin_top = 50.0
+margin_right = 544.0
+margin_bottom = 209.0
 size_flags_vertical = 4
 custom_constants/separation = 16
 
 [node name="Label" type="Label" parent="PopupDialog/MarginContainer/VBoxContainer"]
-margin_right = 379.0
-margin_bottom = 30.0
+margin_right = 528.0
+margin_bottom = 29.0
 theme = ExtResource( 2 )
 text = "press the key you want to assign:"
 align = 1
 
 [node name="LineEdit" type="LineEdit" parent="PopupDialog/MarginContainer/VBoxContainer"]
-margin_left = 154.0
-margin_top = 46.0
-margin_right = 224.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 64, 64 )
+margin_left = 200.0
+margin_top = 45.0
+margin_right = 328.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 128, 64 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.964706, 0.776471, 0.658824, 1 )
+custom_colors/font_color_uneditable = Color( 0.964706, 0.776471, 0.658824, 1 )
+custom_styles/read_only = SubResource( 12 )
 custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 11 )
 align = 1
 editable = false
 context_menu_enabled = false
@@ -593,13 +769,13 @@ shortcut_keys_enabled = false
 selecting_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupDialog/MarginContainer/VBoxContainer"]
-margin_top = 126.0
-margin_right = 379.0
-margin_bottom = 160.0
+margin_top = 125.0
+margin_right = 528.0
+margin_bottom = 159.0
 
-[node name="cancel" type="Button" parent="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 18.0
-margin_right = 168.0
+[node name="Cancel" type="Button" parent="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 56.0
+margin_right = 206.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 150, 32 )
 size_flags_horizontal = 6
@@ -607,9 +783,9 @@ theme = ExtResource( 2 )
 shortcut_in_tooltip = false
 text = "cancel"
 
-[node name="confirm" type="Button" parent="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 210.0
-margin_right = 360.0
+[node name="Confirm" type="Button" parent="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 322.0
+margin_right = 472.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 150, 32 )
 size_flags_horizontal = 6
@@ -617,22 +793,33 @@ theme = ExtResource( 2 )
 shortcut_in_tooltip = false
 text = "confirm"
 
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer/up_key" to="." method="_on_up_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer2/left_key" to="." method="_on_left_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer3/down_key" to="." method="_on_down_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer4/right_key" to="." method="_on_right_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer5/interact_key" to="." method="_on_interact_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer6/light_key" to="." method="_on_light_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/controls_side/HBoxContainer7/VBoxContainer2/HBoxContainer7/sprint_key" to="." method="_on_sprint_key_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer2/CheckBoxMusic" to="." method="_on_CheckBoxMusic_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer/music_vol_minus" to="." method="_on_music_vol_minus_pressed"]
-[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer/music_vol" to="." method="_on_music_vol_value_changed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer/HBoxContainer/music_vol_plus" to="." method="_on_music_vol_plus_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer3/CheckBoxFX" to="." method="_on_CheckBoxFX_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2/fx_vol_minus" to="." method="_on_fx_vol_minus_pressed"]
-[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2/fx_vol" to="." method="_on_fx_vol_value_changed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/audio_side/VBoxContainer2/HBoxContainer2/fx_vol_plus" to="." method="_on_fx_vol_plus_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/return" to="." method="_on_return_pressed"]
+[node name="Coldfire-gb-32x" type="Sprite" parent="."]
+position = Vector2( 517, -375 )
+scale = Vector2( 7.57031, 21.6562 )
+texture = ExtResource( 1 )
+
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer/UpKey" to="." method="_on_up_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer2/LeftKey" to="." method="_on_left_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer3/DownKey" to="." method="_on_down_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer4/RightKey" to="." method="_on_right_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer5/InteractKey" to="." method="_on_interact_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer6/LightKey" to="." method="_on_light_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer7/SprintKey" to="." method="_on_sprint_key_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/Panel/MarginContainer/HBoxContainer7/VBoxContainer2/HBoxContainer8/RestartKey" to="." method="_on_restart_key_pressed"]
+[connection signal="item_selected" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlsSide/DifficultySide/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer2/CheckBoxMusic" to="." method="_on_CheckBoxMusic_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer/MusicVolMinus" to="." method="_on_music_vol_minus_pressed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer/MusicVol" to="." method="_on_music_vol_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/MusicVBox/HBoxContainer/MusicVolPlus" to="." method="_on_music_vol_plus_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer3/CheckBoxFX" to="." method="_on_CheckBoxFX_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2/FXVolMinus" to="." method="_on_fx_vol_minus_pressed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2/FXVol" to="." method="_on_fx_vol_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/SFXVBox/HBoxContainer2/FXVolPlus" to="." method="_on_fx_vol_plus_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer3/CheckBoxVoice" to="." method="_on_CheckBoxVoice_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2/VoiceVolMinus" to="." method="_on_fx_vol_minus_pressed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2/VoiceVol" to="." method="_on_VoiceVol_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AudioSide/Panel/MarginContainer/VBoxContainer3/VoiceVBox/HBoxContainer2/VoiceVolPlus" to="." method="_on_fx_vol_plus_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Return" to="." method="_on_return_pressed"]
 [connection signal="about_to_show" from="PopupDialog" to="." method="_on_PopupDialog_about_to_show"]
-[connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="PopupDialog" method="_on_cancel_pressed"]
-[connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer/confirm" to="PopupDialog" method="_on_confirm_pressed"]
+[connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="PopupDialog" method="_on_cancel_pressed"]
+[connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/HBoxContainer/Confirm" to="PopupDialog" method="_on_confirm_pressed"]

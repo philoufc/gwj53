@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/Level.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Element.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/LevelTilemap.tres" type="TileSet" id=5]
@@ -23,3 +24,4 @@ element_number = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 357, 416 )
+script = ExtResource( 1 )
