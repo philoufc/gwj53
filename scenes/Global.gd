@@ -2,12 +2,14 @@ extends Control
 
 const TILE_SIZE = 64
 
-enum MUSIC_TRACKS {CIARAS_DETERMINATION, CIARAS_GIFT, FINDING_THE_CURE, SUAVE_SENILE}
+enum MUSIC_TRACKS {CIARAS_DETERMINATION, CIARAS_GIFT, CIARAS_LAMENT, FINDING_THE_CURE, LAID_TO_REST, SUAVE_SENILE}
 
 const MUSIC_STREAMS := {
 	MUSIC_TRACKS.CIARAS_DETERMINATION: preload("res://audio/music/ciaras_determination.ogg"),
 	MUSIC_TRACKS.CIARAS_GIFT: preload("res://audio/music/ciaras_gift.ogg"),
+	MUSIC_TRACKS.CIARAS_LAMENT: preload("res://audio/music/ciaras_lament.ogg"),
 	MUSIC_TRACKS.FINDING_THE_CURE: preload("res://audio/music/finding_the_cure.ogg"),
+	MUSIC_TRACKS.LAID_TO_REST: preload("res://audio/music/laid_to_rest.ogg"),
 	MUSIC_TRACKS.SUAVE_SENILE: preload("res://audio/music/suave_senile.ogg"),
 }
 
