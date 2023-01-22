@@ -286,7 +286,6 @@ func check_if_level_complete(difficulty):
 			print(Global.keeping_scores)
 			cauldron_assembly()
 #			yield(cauldron_assembly(), "completed")
-			yield(cauldron.animated_sprite, "animation_finished")
 			Global.fade_sweep()
 			yield(get_tree().create_timer(0.8), "timeout")
 			Global.ui_moves.hide()
