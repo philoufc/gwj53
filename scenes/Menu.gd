@@ -11,8 +11,6 @@ onready var credits_button = $MainMenu/MarginContainer/VBoxContainer/Credits
 onready var exit_button = $MainMenu/MarginContainer/VBoxContainer/Exit
 onready var startup = $Startup
 onready var background_tilemap = $ViewportContainer/Viewport/TileMapMenu
-onready var menu_cauldron = $MainMenu/TextureRect/Cauldron2/AnimatedSprite
-onready var timer = $MainMenu/TextureRect/Timer
 
 
 func _ready():
@@ -116,16 +114,3 @@ func SubvertSplashSubs():
 	yield(get_tree().create_timer(1.5), "timeout")
 	subs.visible = false
 
-
-
-
-
-
-
-#func _on_Timer_timeout() -> void:
-#	menu_cauldron.play("smoked")
-#	var random_timer = clamp(randf() * 8, 2.1, 8)
-#	print(random_timer)
-#	timer.wait_time = random_timer
-#	timer.start()
-#	menu_cauldron.frame = 0 
