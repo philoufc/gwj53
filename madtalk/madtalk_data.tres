@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=198 format=2]
+[gd_resource type="Resource" load_steps=200 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -61,6 +61,34 @@ condition_type = 0
 condition_values = [  ]
 effect_type = 10
 effect_values = [ "play_camera_anim", "camera1" ]
+
+[sub_resource type="Resource" id=196]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_broom_anim", "broom" ]
+
+[sub_resource type="Resource" id=197]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_music", "2" ]
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 4 )
@@ -151,7 +179,7 @@ script = ExtResource( 1 )
 sequence_id = 1
 position = Vector2( 400, 0 )
 comment = ""
-items = [ SubResource( 188 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+items = [ SubResource( 188 ), SubResource( 196 ), SubResource( 197 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
 options = [  ]
 continue_sequence_id = 2
 continue_port_index = 0
