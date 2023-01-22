@@ -1,0 +1,313 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://3d/materials/WildcardBack.material" type="Material" id=1]
+[ext_resource path="res://3d/materials/Wildcard1.material" type="Material" id=2]
+[ext_resource path="res://3d/materials/Wildcard2.material" type="Material" id=3]
+[ext_resource path="res://3d/materials/Wildcard3.material" type="Material" id=4]
+[ext_resource path="res://3d/materials/Theme.material" type="Material" id=5]
+[ext_resource path="res://3d/textures/subvertissement.png" type="Texture" id=6]
+[ext_resource path="res://3d/textures/madparrot.png" type="Texture" id=7]
+[ext_resource path="res://3d/textures/jg.png" type="Texture" id=8]
+[ext_resource path="res://3d/textures/gwj.png" type="Texture" id=9]
+[ext_resource path="res://3d/meshes/stars.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://3d/anims/splash.anim" type="Animation" id=11]
+[ext_resource path="res://3d/Splash.gd" type="Script" id=12]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "Plane.013"
+surfaces/0 = {
+"aabb": AABB( 2.275, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 154, 153, 17, 64, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 170, 58, 0, 60, 102, 102, 90, 64, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 0, 60, 0, 0, 154, 153, 17, 64, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 170, 58, 0, 0, 102, 102, 90, 64, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 0, 60, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=2]
+resource_name = "Plane.012"
+surfaces/0 = {
+"aabb": AABB( 1.1375, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 154, 153, 145, 63, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 57, 0, 60, 154, 153, 17, 64, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 170, 58, 0, 0, 154, 153, 145, 63, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 57, 0, 0, 154, 153, 17, 64, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 170, 58, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=3]
+resource_name = "Plane.011"
+surfaces/0 = {
+"aabb": AABB( -1.19209e-07, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 215, 255, 255, 51, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 0, 56, 0, 60, 154, 153, 145, 63, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 57, 0, 0, 215, 255, 255, 179, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 0, 56, 0, 0, 154, 153, 145, 63, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 57, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=4]
+resource_name = "Plane.010"
+surfaces/0 = {
+"aabb": AABB( -1.1375, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 154, 153, 145, 191, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 53, 0, 60, 215, 255, 255, 179, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 0, 56, 0, 0, 154, 153, 145, 191, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 53, 0, 0, 215, 255, 255, 51, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 0, 56, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "Plane.009"
+surfaces/0 = {
+"aabb": AABB( -2.275, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 154, 153, 17, 192, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 49, 0, 60, 154, 153, 145, 191, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 53, 0, 0, 154, 153, 17, 192, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 49, 0, 0, 154, 153, 145, 191, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 53, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=6]
+resource_name = "Plane.008"
+surfaces/0 = {
+"aabb": AABB( -3.4125, -0.975, 0, 1.1375, 1.95, 1e-05 ),
+"array_data": PoolByteArray( 102, 102, 90, 192, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 0, 0, 0, 60, 154, 153, 17, 192, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 85, 49, 0, 0, 102, 102, 90, 192, 152, 153, 121, 63, 0, 0, 0, 128, 0, 0, 127, 63, 0, 0, 0, 0, 154, 153, 17, 192, 152, 153, 121, 191, 0, 0, 0, 128, 0, 0, 127, 63, 85, 49, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 5 ),
+"name": "Theme",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="SpatialMaterial" id=17]
+resource_name = "Shade1"
+flags_unshaded = true
+params_specular_mode = 4
+params_cull_mode = 2
+albedo_color = Color( 0.0784314, 0.129412, 0.25098, 1 )
+
+[sub_resource type="ArrayMesh" id=7]
+resource_name = "Cube.001"
+surfaces/0 = {
+"aabb": AABB( -14, -14, -50, 28, 28, 63 ),
+"array_data": PoolByteArray( 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 80, 65, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 72, 194, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 80, 65, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 72, 194, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 72, 194, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 72, 194, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 72, 194, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 80, 65, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 72, 194, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 80, 65, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 80, 65, 0, 0, 0, 127, 0, 54, 0, 0, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 80, 65, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 72, 194, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 80, 65, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 96, 193, 0, 0, 96, 193, 0, 0, 72, 194, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 72, 194, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 80, 65, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 72, 194, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 72, 194, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 72, 194, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 96, 65, 0, 0, 96, 65, 0, 0, 80, 65, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 80, 65, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 96, 65, 0, 0, 96, 193, 0, 0, 80, 65, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 96, 193, 0, 0, 96, 65, 0, 0, 80, 65, 0, 127, 129, 63, 0, 59, 0, 52 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0, 0, 0, 1, 0, 18, 0, 3, 0, 4, 0, 19, 0, 6, 0, 7, 0, 20, 0, 9, 0, 10, 0, 21, 0, 12, 0, 13, 0, 22, 0, 15, 0, 16, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": SubResource( 17 ),
+"name": "Shade1",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ArrayMesh" id=13]
+resource_name = "Plane.002"
+surfaces/0 = {
+"aabb": AABB( -0.88, 0.00249982, -1.2, 1.76, 1.03579e-05, 2.40001 ),
+"array_data": PoolByteArray( 174, 71, 97, 191, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 0, 0, 60, 174, 71, 97, 63, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 60, 0, 0, 174, 71, 97, 191, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 0, 0, 0, 174, 71, 97, 63, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 60, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 4 ),
+"name": "Wildcard3",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+surfaces/1 = {
+"aabb": AABB( -0.88, -0.00250018, -1.2, 1.76001, 1.00001e-05, 2.4 ),
+"array_data": PoolByteArray( 174, 71, 97, 63, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 0, 0, 0, 174, 71, 97, 191, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 255, 59, 0, 60, 174, 71, 97, 191, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 60, 0, 0, 174, 71, 97, 63, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "WildcardBack",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=14]
+resource_name = "Plane.001"
+surfaces/0 = {
+"aabb": AABB( -0.88, 0.00249982, -1.2, 1.76, 1.03579e-05, 2.40001 ),
+"array_data": PoolByteArray( 174, 71, 97, 191, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 0, 0, 60, 174, 71, 97, 63, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 60, 0, 0, 174, 71, 97, 191, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 0, 0, 0, 174, 71, 97, 63, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 60, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 3 ),
+"name": "Wildcard2",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+surfaces/1 = {
+"aabb": AABB( -0.88, -0.00250018, -1.2, 1.76001, 1.00001e-05, 2.4 ),
+"array_data": PoolByteArray( 174, 71, 97, 63, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 0, 0, 0, 174, 71, 97, 191, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 255, 59, 0, 60, 174, 71, 97, 191, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 60, 0, 0, 174, 71, 97, 63, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "WildcardBack",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=15]
+resource_name = "Plane"
+surfaces/0 = {
+"aabb": AABB( -0.88, 0.00249982, -1.2, 1.76, 1.03579e-05, 2.40001 ),
+"array_data": PoolByteArray( 174, 71, 97, 191, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 0, 0, 60, 174, 71, 97, 63, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 60, 0, 0, 174, 71, 97, 191, 253, 211, 35, 59, 154, 153, 153, 191, 0, 127, 127, 63, 0, 0, 0, 0, 174, 71, 97, 63, 254, 217, 35, 59, 154, 153, 153, 63, 0, 127, 127, 63, 0, 60, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 2 ),
+"name": "Wildcard1",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+surfaces/1 = {
+"aabb": AABB( -0.88, -0.00250018, -1.2, 1.76001, 1.00001e-05, 2.4 ),
+"array_data": PoolByteArray( 174, 71, 97, 63, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 0, 0, 0, 174, 71, 97, 191, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 255, 59, 0, 60, 174, 71, 97, 191, 254, 217, 35, 187, 154, 153, 153, 191, 0, 130, 129, 63, 0, 60, 0, 0, 174, 71, 97, 63, 253, 211, 35, 187, 154, 153, 153, 63, 0, 130, 129, 63, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "WildcardBack",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[node name="Splash" type="Spatial"]
+script = ExtResource( 12 )
+
+[node name="Theme1006" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 1 )
+
+[node name="Theme1005" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 2 )
+
+[node name="Theme1004" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 3 )
+
+[node name="Theme1003" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 4 )
+
+[node name="Theme1002" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 5 )
+
+[node name="Theme1001" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -38 )
+mesh = SubResource( 6 )
+
+[node name="Skybox" type="MeshInstance" parent="."]
+mesh = SubResource( 7 )
+
+[node name="Stars" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6, -44.4623 )
+mesh = ExtResource( 10 )
+
+[node name="JG" type="Sprite3D" parent="."]
+transform = Transform( -0.375, -4.91753e-08, -0.649519, -0.649519, -2.83914e-08, 0.375, -4.91753e-08, 0.75, -2.83914e-08, 0, 0, -4 )
+modulate = Color( 1, 1, 1, 0 )
+pixel_size = 0.0025
+axis = 1
+texture = ExtResource( 8 )
+
+[node name="MAD" type="Sprite3D" parent="."]
+transform = Transform( -0.5, -6.55671e-08, -0.866025, -0.866025, -3.78552e-08, 0.5, -6.55671e-08, 1, -3.78552e-08, 0, 0, -4 )
+modulate = Color( 1, 1, 1, 0 )
+pixel_size = 0.002
+axis = 1
+texture = ExtResource( 7 )
+
+[node name="SUB" type="Sprite3D" parent="."]
+transform = Transform( -0.5, -6.55671e-08, -0.866025, -0.866025, -3.78552e-08, 0.5, -6.55671e-08, 1, -3.78552e-08, 0, 0, -4 )
+modulate = Color( 1, 1, 1, 0 )
+pixel_size = 0.002
+axis = 1
+texture = ExtResource( 6 )
+
+[node name="GWJ" type="Sprite3D" parent="."]
+transform = Transform( -0.5, -6.55671e-08, -0.866025, -0.866025, -3.78552e-08, 0.5, -6.55671e-08, 1, -3.78552e-08, 0, 0, -4 )
+modulate = Color( 1, 1, 1, 0 )
+pixel_size = 0.0025
+axis = 1
+texture = ExtResource( 9 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.5, 0.866026, -9.23022e-15, -0.866026, -0.5, 5.32908e-15, 1.10114e-20, 1.06581e-14, 1, 0, 0, -2 )
+current = true
+fov = 56.4688
+near = 0.1
+far = 1000.0
+
+[node name="Wildcard3" type="MeshInstance" parent="."]
+transform = Transform( 1, -5.56362e-08, -1.00487e-14, 5.56362e-08, 1, -1.68587e-07, 1.94282e-14, 1.68587e-07, 1, 0, 0, 0 )
+mesh = SubResource( 13 )
+
+[node name="Wildcard2" type="MeshInstance" parent="."]
+transform = Transform( 0.996195, 0.0871558, 6.57252e-14, -0.0871558, 0.996195, 1.68588e-07, 1.46933e-08, -1.67946e-07, 1, 0, 0, 0 )
+mesh = SubResource( 14 )
+
+[node name="Wildcard1" type="MeshInstance" parent="."]
+transform = Transform( 0.615662, -0.788011, 4.21471e-08, 0.788011, 0.615662, 1.26441e-07, -1.25585e-07, -4.46324e-08, 1, 0, 0, 0 )
+mesh = SubResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/splash = ExtResource( 11 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

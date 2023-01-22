@@ -30,6 +30,7 @@ onready var fader = $CanvasLayer/Fader
 onready var sweep = $CanvasLayer/Sweep
 onready var menu_music = $MenuMusic
 onready var animation_player = $AnimationPlayer
+onready var color_rect = $ColorRect
 
 export (int, 1, 11) var current_level = 1
 var number_of_moves :int = 0
