@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blblblu.ogg-e6e5282c050010a0eb0e756e2e0b884a.oggstr"
+
+[deps]
+
+source_file="res://audio/blblblu.ogg"
+dest_files=[ "res://.import/blblblu.ogg-e6e5282c050010a0eb0e756e2e0b884a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

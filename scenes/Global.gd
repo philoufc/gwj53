@@ -88,6 +88,7 @@ var currently_playing := -1
 onready var moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves/Moves
 onready var ui_moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves
 onready var music_player : AudioStreamPlayer = $Music
+onready var sfx_player := $SoundEffects
 
 func _ready():
 	randomize()
