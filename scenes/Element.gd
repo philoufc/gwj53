@@ -26,6 +26,7 @@ onready var animation_player = $AnimationPlayer
 var explode_flame = load("res://visual/flame.png")
 var explode_ice = load("res://visual/ice.png")
 var explode_light = load("res://visual/light.png")
+onready var glass_break = preload("res://audio/glass_break.ogg")
 
 func _ready() -> void:
 	exploding.hide()
@@ -163,5 +164,8 @@ func explode(with):
 	sprite.hide()
 	with.hide()
 	animation_player.play("Explosion")
+	Global.sfx_player.stream = glass_break
+	yield(get_tree().create_timer(0.2), "timeout")
+	Global.sfx_player.play()
 	yield(animation_player, "animation_finished")
 	level.get_parent().level_restart()

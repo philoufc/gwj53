@@ -168,6 +168,8 @@ func move(direction):
 			Tween.TRANS_BACK, 
 			Tween.EASE_IN)
 		tween.start()
+#		Global.sfx_player.stream = whoosh
+#		Global.sfx_player.play()
 		yield(tween, "tween_completed")
 		yield(get_tree().create_timer(0.1), "timeout")
 		check_around_and_attach()
