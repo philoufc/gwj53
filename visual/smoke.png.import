@@ -2,19 +2,21 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.stex"
+path.s3tc="res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.s3tc.stex"
+path.etc2="res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/smoke.png"
-dest_files=[ "res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.stex" ]
+dest_files=[ "res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.s3tc.stex", "res://.import/smoke.png-65b07b2059ecc11ad11eaee628beb77f.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
