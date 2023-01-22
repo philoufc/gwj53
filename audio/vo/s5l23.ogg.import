@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/s5l23.ogg-e0e85131f5608c45ed2267df3adc3109.oggstr"
+
+[deps]
+
+source_file="res://audio/vo/s5l23.ogg"
+dest_files=[ "res://.import/s5l23.ogg-e0e85131f5608c45ed2267df3adc3109.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
