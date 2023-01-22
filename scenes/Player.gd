@@ -74,8 +74,17 @@ var solutions :Dictionary = {
 		2: [Vector2(1, -1)]
 	},
 	10: {
-		1: [Vector2(1, 0)],
-		2: [Vector2(0, 1)]
+		1: [
+			Vector2(0, 1),
+			Vector2(-1, 0),
+			Vector2(1, 0),
+			Vector2(-2, -1),
+			Vector2(-1, -1),
+			Vector2(0, -1),
+			Vector2(1, -1),
+			Vector2(2, -1),
+			Vector2(-1, -2),
+			Vector2(1, -2)]
 	}
 }
 
@@ -233,10 +242,22 @@ func check_if_level_complete(difficulty):
 	can_move = false
 	var final_positions = []
 	flatten_array(elements_offsets.values(), final_positions)
+	var removed_duplicates = []
+	for pos in final_positions:
+		if not pos in removed_duplicates:
+			removed_duplicates.append(pos)
+	final_positions = removed_duplicates
 	final_positions.sort()
 	var solution_positions = []
 	flatten_array(solutions[current_level].values(), solution_positions)
 	solution_positions.sort()
+	removed_duplicates = []
+	for element in elements_carried:
+		if not element in removed_duplicates:
+			removed_duplicates.append(element)
+	elements_carried = removed_duplicates
+	print(elements_offsets)
+	print(elements_carried)
 	if len(final_positions) == len(solution_positions):
 		var found_discrepancy = false
 		match difficulty:
@@ -248,8 +269,6 @@ func check_if_level_complete(difficulty):
 						found_discrepancy = true
 						break
 			"normal":
-#					print(final_positions)
-#					print(solution_positions)
 				if final_positions != solution_positions:
 					found_discrepancy = true
 						

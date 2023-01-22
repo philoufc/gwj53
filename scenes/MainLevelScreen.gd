@@ -41,6 +41,7 @@ func import_level(level):
 	level.player.main_screen_level = self
 
 func next_level(current_level):
+	Global.sweep.hide()
 	if Global.just_one_level:
 		get_tree().change_scene("res://scenes/Menu.tscn")
 	else:
