@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=200 format=2]
+[gd_resource type="Resource" load_steps=202 format=2]
 
 [ext_resource path="res://addons/madtalk/components/resources/DialogNodeData.gd" type="Script" id=1]
 [ext_resource path="res://addons/madtalk/components/resources/DialogSheetData.gd" type="Script" id=2]
@@ -38,12 +38,26 @@ sheet_description = "Don't delete this please. You don't have to use it either."
 next_sequence_id = 1
 nodes = [ SubResource( 2 ) ]
 
+[sub_resource type="Resource" id=199]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_ambience", "" ]
+
 [sub_resource type="Resource" id=6]
 script = ExtResource( 1 )
 sequence_id = 0
 position = Vector2( 0, 0 )
 comment = ""
-items = [  ]
+items = [ SubResource( 199 ) ]
 options = [  ]
 continue_sequence_id = 1
 continue_port_index = 0
@@ -2230,12 +2244,26 @@ sheet_description = ""
 next_sequence_id = 7
 nodes = [ SubResource( 137 ), SubResource( 145 ), SubResource( 152 ), SubResource( 160 ), SubResource( 163 ) ]
 
+[sub_resource type="Resource" id=198]
+script = ExtResource( 4 )
+item_type = 2
+connected_to_id = -1
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_hide_on_end = 0
+condition_type = 0
+condition_values = [  ]
+effect_type = 10
+effect_values = [ "play_music", "6" ]
+
 [sub_resource type="Resource" id=165]
 script = ExtResource( 1 )
 sequence_id = 0
 position = Vector2( 0, 0 )
 comment = ""
-items = [  ]
+items = [ SubResource( 198 ) ]
 options = [  ]
 continue_sequence_id = 1
 continue_port_index = 0
