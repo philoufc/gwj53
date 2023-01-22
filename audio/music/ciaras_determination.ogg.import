@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ciaras_determination.ogg-8bfc0a2183c3b9f29adb7806609f7c82.oggstr"
+
+[deps]
+
+source_file="res://audio/music/ciaras_determination.ogg"
+dest_files=[ "res://.import/ciaras_determination.ogg-8bfc0a2183c3b9f29adb7806609f7c82.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

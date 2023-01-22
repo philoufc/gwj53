@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/finding_the_cure.ogg-2aafc5d10305284cbbb22f0dd6abc480.oggstr"
+
+[deps]
+
+source_file="res://audio/music/finding_the_cure.ogg"
+dest_files=[ "res://.import/finding_the_cure.ogg-2aafc5d10305284cbbb22f0dd6abc480.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=26.666

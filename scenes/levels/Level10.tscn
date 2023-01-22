@@ -8,7 +8,7 @@
 [node name="Level" type="Node2D"]
 position = Vector2( 0, 12 )
 script = ExtResource( 2 )
-level_number = 6
+level_number = 10
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )

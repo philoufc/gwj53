@@ -14,6 +14,7 @@ func _ready() -> void:
 		element.position = return_middle_pos(return_tile(element.position))
 		element.level = self
 		element.player = player
+	Global.play_track_for_level(level_number)
 	
 func return_tile(position):
 	return tilemap.world_to_map(position)

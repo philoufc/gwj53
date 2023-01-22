@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/suave_senile.ogg-546f5adccc7f23d78de11b1351764b69.oggstr"
+
+[deps]
+
+source_file="res://audio/music/suave_senile.ogg"
+dest_files=[ "res://.import/suave_senile.ogg-546f5adccc7f23d78de11b1351764b69.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=14.545

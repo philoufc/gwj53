@@ -2,6 +2,15 @@ extends Control
 
 const TILE_SIZE = 64
 
+enum MUSIC_TRACKS {CIARAS_DETERMINATION, CIARAS_GIFT, FINDING_THE_CURE, SUAVE_SENILE}
+
+const MUSIC_STREAMS := {
+	MUSIC_TRACKS.CIARAS_DETERMINATION: preload("res://audio/music/ciaras_determination.ogg"),
+	MUSIC_TRACKS.CIARAS_GIFT: preload("res://audio/music/ciaras_gift.ogg"),
+	MUSIC_TRACKS.FINDING_THE_CURE: preload("res://audio/music/finding_the_cure.ogg"),
+	MUSIC_TRACKS.SUAVE_SENILE: preload("res://audio/music/suave_senile.ogg"),
+}
+
 var level_names := {
 	1: "Non-Flammable\nWater",
 	2: "Recongestant",
@@ -16,6 +25,16 @@ var level_names := {
 } # elixir of love-hate,
 # Shinra Guards' Quantum Potion
 # bad breath of the wild
+
+var level_music := {
+	1: MUSIC_TRACKS.SUAVE_SENILE,
+	2: MUSIC_TRACKS.SUAVE_SENILE,
+	3: MUSIC_TRACKS.SUAVE_SENILE,
+	7: MUSIC_TRACKS.CIARAS_DETERMINATION,
+	8: MUSIC_TRACKS.CIARAS_DETERMINATION,
+	9: MUSIC_TRACKS.CIARAS_DETERMINATION,
+	10: MUSIC_TRACKS.FINDING_THE_CURE
+}
 
 onready var main_level_screen = preload("res://scenes/MainLevelScreen.tscn")
 onready var msg_panel = $CanvasLayer/MsgPanel
@@ -57,8 +76,11 @@ var custom_down_key :String = "s"
 var custom_right_key :String = "d"
 var custom_restart_key :String = "r"
 
+var currently_playing := -1
+
 onready var moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves/Moves
 onready var ui_moves = $CanvasLayer/UI/HBoxContainer/VBoxContainer/UIMoves
+onready var music_player : AudioStreamPlayer = $Music
 
 func _ready():
 	randomize()
@@ -73,7 +95,19 @@ func _ready():
 	ingame_menu.hide()
 	ui_moves.hide()
 	msg_panel.hide()
-	
+
+func play_track(which_track : int) -> void:
+	if currently_playing == which_track:
+		return
+	music_player.stop()
+	music_player.stream = MUSIC_STREAMS[which_track]
+	music_player.play()
+	currently_playing = which_track
+
+func play_track_for_level(which_level : int) -> void:
+	if level_music.has(which_level):
+		play_track(level_music[which_level])
+
 func update_ui():
 	moves.text = str(number_of_moves)
 

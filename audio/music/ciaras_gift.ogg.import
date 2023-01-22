@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ciaras_gift.ogg-c7bb331a8ecfe4fb9e1b458afbc079e0.oggstr"
+
+[deps]
+
+source_file="res://audio/music/ciaras_gift.ogg"
+dest_files=[ "res://.import/ciaras_gift.ogg-c7bb331a8ecfe4fb9e1b458afbc079e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=4.54
