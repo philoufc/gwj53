@@ -51,6 +51,8 @@ func boot_sequence():
 
 func _on_Play_pressed() -> void:
 	_removeFocus()
+	Global.fade_sweep()
+	yield(get_tree().create_timer(0.8), "timeout")
 	get_tree().change_scene("res://3d/Outside.tscn")
 
 func _on_Levels_pressed() -> void:
