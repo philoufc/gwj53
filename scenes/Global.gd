@@ -107,6 +107,9 @@ func play_track(which_track : int) -> void:
 	if currently_playing == which_track:
 		return
 	music_player.stop()
+	if animation_player.current_animation == "fade_music":
+		animation_player.stop()
+	music_player.volume_db = -6.0
 	music_player.stream = MUSIC_STREAMS[which_track]
 	music_player.play()
 	currently_playing = which_track
@@ -114,6 +117,9 @@ func play_track(which_track : int) -> void:
 func play_track_for_level(which_level : int) -> void:
 	if level_music.has(which_level):
 		play_track(level_music[which_level])
+
+func fade_out_music() -> void:
+	animation_player.play("fade_music")
 
 func update_ui():
 	moves.text = str(number_of_moves)
@@ -138,8 +144,10 @@ func show_restart_message():
 		animation_player.play("MsgPanelBottom")
 		restart_message_shown = true
 
-func play_one_level(level):
-	pass
+func play_level(which_level : int, just_one : bool):
+	Global.just_one_level = just_one
+	Global.current_level = which_level
+	get_tree().change_scene("res://scenes/MainLevelScreen.tscn")
 
 func MusicMuteToggle():
 	if music_muted == false:

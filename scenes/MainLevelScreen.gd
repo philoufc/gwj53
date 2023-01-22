@@ -44,13 +44,17 @@ func next_level(current_level):
 	if Global.just_one_level:
 		get_tree().change_scene("res://scenes/Menu.tscn")
 	else:
-	#	print("global current level:", Global.current_level)
-	#	if current_level == 4:
-	#		print("goto next scene")
-	#	else:
-			loaded_level += 1
-			Global.current_level = current_level + 1
-			import_level(Global.current_level)
+		match current_level:
+			3:
+				get_tree().change_scene("res://scenes/cutscenes/Scene2.tscn")
+			6:
+				get_tree().change_scene("res://scenes/cutscenes/Scene3.tscn")
+			9:
+				get_tree().change_scene("res://scenes/cutscenes/Scene5.tscn")
+			10:
+				get_tree().change_scene("res://scenes/cutscenes/Scene7.tscn")
+			_:
+				Global.play_level(current_level + 1, false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("level_reset"):

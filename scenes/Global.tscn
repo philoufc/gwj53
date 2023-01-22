@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Global.gd" type="Script" id=1]
 [ext_resource path="res://themes/Theme.tres" type="Theme" id=2]
@@ -198,6 +198,22 @@ tracks/2/keys = {
 "values": [ Vector2( 1732, 1188 ) ]
 }
 
+[sub_resource type="Animation" id=24]
+resource_name = "fade_music"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -6.0, -40.0 ]
+}
+
 [node name="Global" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -350,7 +366,7 @@ text = "If you're stuck, you can press the 'R' key to restart."
 align = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-volume_db = -6.0
+volume_db = -80.0
 bus = "Music"
 
 [node name="DialogVoices" type="AudioStreamPlayer" parent="."]
@@ -366,5 +382,6 @@ anims/RESET = SubResource( 21 )
 anims/ScreenVisualFadeIn = SubResource( 20 )
 anims/ScreenVisualFadeOut = SubResource( 19 )
 anims/SweepFade = SubResource( 22 )
+anims/fade_music = SubResource( 24 )
 
 [connection signal="gui_input" from="CanvasLayer/MsgPanel" to="." method="_on_MsgPanel_gui_input"]
