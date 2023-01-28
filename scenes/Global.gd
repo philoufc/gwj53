@@ -124,6 +124,10 @@ func play_track_for_level(which_level : int) -> void:
 func fade_out_music() -> void:
 	animation_player.play("fade_music")
 
+func stop_music() -> void:
+	music_player.stop()
+	currently_playing = -1
+
 func update_ui():
 	moves.text = str(number_of_moves)
 

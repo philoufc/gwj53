@@ -17,7 +17,9 @@ func _on_Settings_pressed() -> void:
 
 func _on_ReturnMainMenu_pressed() -> void:
 	Global.play_ui_click()
-	pass # Replace with function body.
+	Global.ingame_menu.hide()
+	Global.stop_music()
+	get_tree().change_scene("res://scenes/Menu.tscn")
 
 func _on_button_entered():
 	Global.play_ui_mouseover()
