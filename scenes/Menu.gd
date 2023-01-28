@@ -12,7 +12,6 @@ onready var exit_button = $MainMenu/MarginContainer/VBoxContainer/Exit
 onready var startup = $Startup
 onready var background_tilemap = $ViewportContainer/Viewport/TileMapMenu
 
-
 func _ready():
 	print("scores:")
 	print(Global.keeping_scores)
@@ -50,27 +49,33 @@ func boot_sequence():
 	
 
 func _on_Play_pressed() -> void:
+	Global.play_ui_click()
 	_removeFocus()
 	Global.fade_sweep()
 	yield(get_tree().create_timer(0.8), "timeout")
 	get_tree().change_scene("res://3d/Outside.tscn")
 
 func _on_Levels_pressed() -> void:
+	Global.play_ui_click()
 	_removeFocus()
 	Global.levels.show()
 
 func _on_Settings_pressed() -> void:
+	Global.play_ui_click()
 	_removeFocus()
 	Global.settings.show()
 
 func _on_Credits_pressed() -> void:
+	Global.play_ui_click()
 	_removeFocus()
 	Global.credits.show()
 
 func _on_Exit_pressed() -> void:
+	Global.play_ui_click()
 	_removeFocus()
+	Global.fade_sweep()
+	yield(get_tree().create_timer(0.8), "timeout")
 	get_tree().quit()
-
 
 func _removeFocus():
 	play_button.release_focus()
@@ -87,18 +92,23 @@ func _unhandled_input(event):
 				play_button.grab_focus()
 
 func _on_Play_mouse_entered() -> void:
+	Global.play_ui_mouseover()
 	_removeFocus()
 	
 func _on_Levels_mouse_entered() -> void:
+	Global.play_ui_mouseover()
 	_removeFocus()
 	
 func _on_Settings_mouse_entered() -> void:
+	Global.play_ui_mouseover()
 	_removeFocus()
 
 func _on_Credits_mouse_entered() -> void:
+	Global.play_ui_mouseover()
 	_removeFocus()
 
 func _on_Exit_mouse_entered() -> void:
+	Global.play_ui_mouseover()
 	_removeFocus()
 
 func SubvertSplashSubs():

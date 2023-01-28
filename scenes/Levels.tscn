@@ -204,4 +204,5 @@ position = Vector2( 517, -375 )
 scale = Vector2( 7.57031, 21.6562 )
 texture = ExtResource( 4 )
 
+[connection signal="mouse_entered" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Return" to="." method="_on_Return_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Return" to="." method="_on_Return_pressed"]

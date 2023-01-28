@@ -16,15 +16,19 @@ func _ready():
 	sfx_volume.value = Global.fx_volume
 
 func _on_music_vol_plus_pressed():
+	Global.play_ui_click()
 	music_volume.value += 5
 
 func _on_music_vol_minus_pressed():
+	Global.play_ui_click()
 	music_volume.value -= 5
 
 func _on_fx_vol_minus_pressed():
+	Global.play_ui_click()
 	sfx_volume.value -= 5
 
 func _on_fx_vol_plus_pressed():
+	Global.play_ui_click()
 	sfx_volume.value += 5
 
 func UpdateLabels():
@@ -67,31 +71,40 @@ func _on_restart_key_pressed() -> void:
 	$PopupDialog.popup()
 
 func _on_return_pressed():
+	Global.play_ui_click()
 	self.visible = false
 
-
 func _on_music_vol_value_changed(value):
+	Global.play_ui_click()
 	Global.MusicVolumeSet(value)
 
 func _on_fx_vol_value_changed(value):
+	Global.play_ui_click()
 	Global.FXVolumeSet(value)
 
 func _on_VoiceVol_value_changed(value: float) -> void:
+	Global.play_ui_click()
 	Global.VoiceVolumeSet(value)
 
 func _on_CheckBoxMusic_pressed():
+	Global.play_ui_click()
 	Global.MusicMuteToggle()
 
 func _on_CheckBoxVoice_pressed() -> void:
+	Global.play_ui_click()
 	Global.VoiceMuteToggle()
 
 func _on_CheckBoxFX_pressed():
+	Global.play_ui_click()
 	Global.FXMuteToggle()
 
-
 func _on_OptionButton_item_selected(index: int) -> void:
+	Global.play_ui_click()
 	match index:
 		0:
 			Global.game_difficulty = "normal"
 		1:
 			Global.game_difficulty = "hard"
+
+func _on_button_entered() -> void:
+	Global.play_ui_mouseover()

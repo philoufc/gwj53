@@ -57,6 +57,8 @@ onready var sweep = $CanvasLayer/Sweep
 onready var menu_music = $MenuMusic
 onready var animation_player = $AnimationPlayer
 onready var color_rect = $ColorRect
+onready var audio_ui_mouseover : AudioStreamPlayer = $Audio_UI_Mouseover
+onready var audio_ui_click : AudioStreamPlayer = $Audio_UI_Click
 
 export (int, 1, 11) var current_level = 1
 var number_of_moves :int = 0
@@ -182,3 +184,9 @@ func FXMuteToggle():
 func FXVolumeSet(volume :float):
 	fx_volume = volume
 	AudioServer.set_bus_volume_db(3, volume)
+
+func play_ui_mouseover() -> void:
+	audio_ui_mouseover.play()
+
+func play_ui_click() -> void:
+	audio_ui_click.play()

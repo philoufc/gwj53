@@ -470,12 +470,7 @@ scale = Vector2( 4, 4 )
 z_index = 3
 texture = ExtResource( 10 )
 
-[node name="Audio_Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-autoplay = true
-bus = "SoundFX"
-
-[node name="Label" type="Label" parent="."]
+[node name="Label_Version" type="Label" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -485,6 +480,11 @@ margin_bottom = -8.0
 custom_colors/font_color = Color( 0.964706, 0.776471, 0.658824, 1 )
 custom_fonts/font = ExtResource( 11 )
 text = "v1.0.1"
+
+[node name="Audio_Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "SoundFX"
 
 [connection signal="mouse_entered" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]

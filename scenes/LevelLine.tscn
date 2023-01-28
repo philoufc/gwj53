@@ -72,4 +72,5 @@ align = 1
 valign = 1
 autowrap = true
 
+[connection signal="mouse_entered" from="ColumnPlay/Button" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="ColumnPlay/Button" to="." method="_on_Button_pressed"]

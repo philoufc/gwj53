@@ -34,4 +34,8 @@ func update_scores():
 			score.text = str(Global.keeping_scores[int(score.name)])
 
 func _on_Return_pressed() -> void:
+	Global.play_ui_click()
 	self.visible = false
+
+func _on_Return_mouse_entered():
+	Global.play_ui_mouseover()
