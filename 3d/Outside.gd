@@ -1,7 +1,12 @@
 extends Spatial
 
+onready var anim_player : AnimationPlayer = $AnimationPlayer
+
 func _on_AnimationPlayer_animation_finished(anim_name) -> void:
-	get_tree().change_scene("res://scenes/cutscenes/Scene1.tscn")
+	if anim_name == "outside":
+		get_tree().change_scene("res://scenes/cutscenes/Scene1.tscn")
+	else:
+		anim_player.play("outside")
 
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("next_line"):
@@ -9,4 +14,4 @@ func _input(event : InputEvent) -> void:
 
 func _ready() -> void:
 	Global.color_rect.hide()
-	$AnimationPlayer.play("outside")
+	anim_player.play("prologue")

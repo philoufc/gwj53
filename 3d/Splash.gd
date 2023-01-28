@@ -15,5 +15,5 @@ func _input(event : InputEvent) -> void:
 
 func _ready() -> void:
 	Global.color_rect.hide()
-	yield(get_tree().create_timer(3.0), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 	anim_player.play("splash")
