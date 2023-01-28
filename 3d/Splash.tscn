@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://3d/materials/WildcardBack.material" type="Material" id=1]
 [ext_resource path="res://3d/materials/Wildcard1.material" type="Material" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://3d/meshes/stars.mesh" type="ArrayMesh" id=10]
 [ext_resource path="res://3d/anims/splash.anim" type="Animation" id=11]
 [ext_resource path="res://3d/Splash.gd" type="Script" id=12]
+[ext_resource path="res://audio/music/splash.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/splash_sfx.ogg" type="AudioStream" id=14]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Plane.013"
@@ -250,7 +252,7 @@ mesh = SubResource( 6 )
 mesh = SubResource( 7 )
 
 [node name="Stars" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6, -44.4623 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6, -44.7404 )
 mesh = ExtResource( 10 )
 
 [node name="JG" type="Sprite3D" parent="."]
@@ -309,5 +311,13 @@ anims/splash = ExtResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="Audio_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Music"
+
+[node name="Audio_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "SoundFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
