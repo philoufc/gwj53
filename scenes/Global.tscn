@@ -202,7 +202,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=24]
 resource_name = "fade_music"
-length = 10.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Music:volume_db")
 tracks/0/interp = 1
@@ -210,10 +210,24 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -6.0, -40.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
 }
 
 [node name="Global" type="Control"]
@@ -321,7 +335,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.27451, 0.258824, 0.368627, 1 )
+color = Color( 0.27451, 0.258824, 0.368627, 0 )
 
 [node name="Sweep" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -367,7 +381,7 @@ text = "If you're stuck, you can press the 'R' key to restart."
 align = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+volume_db = -6.0
 bus = "Music"
 
 [node name="DialogVoices" type="AudioStreamPlayer" parent="."]
