@@ -325,7 +325,7 @@ func cauldron_assembly():
 		yield(new_tween_2, "tween_completed")
 		element.hide()
 		remove_child(new_tween_2)
-#	cauldron.smoking_is_bad()
+	cauldron.smoking_is_bad()
 	
 	#bubulblblublbulublub
 
