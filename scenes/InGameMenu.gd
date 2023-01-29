@@ -19,6 +19,7 @@ func _on_ReturnMainMenu_pressed() -> void:
 	Global.play_ui_click()
 	Global.ingame_menu.hide()
 	Global.stop_music()
+	get_tree().paused = false
 	get_tree().change_scene("res://scenes/Menu.tscn")
 
 func _on_button_entered():
