@@ -275,17 +275,14 @@ func check_if_level_complete(difficulty):
 					found_discrepancy = true
 						
 		if !found_discrepancy:
-			$LevelEnd.text = "win!"
-			$LevelEnd.show()
-#			yield(get_tree().create_timer(2), "timeout")
-			$LevelEnd.hide()
 			if current_level in Global.keeping_scores:
 				Global.keeping_scores[current_level] = min(Global.keeping_scores[current_level], Global.number_of_moves)
 			else:
 				Global.keeping_scores[current_level] = Global.number_of_moves
 			print(Global.keeping_scores)
 			cauldron_assembly()
-#			yield(cauldron_assembly(), "completed")
+			yield(cauldron_assembly(), "completed")
+			yield(get_tree().create_timer(1.0), "timeout")
 			Global.fade_sweep()
 			yield(get_tree().create_timer(0.8), "timeout")
 			Global.ui_moves.hide()
